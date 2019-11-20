@@ -1,0 +1,1937 @@
++ set -o pipefail
++ export PYTHONUNBUFFERED=True
++ PYTHONUNBUFFERED=True
++ export CUDA_VISIBLE_DEVICES=2
++ CUDA_VISIBLE_DEVICES=2
++ export BATCH_SIZE=10
++ BATCH_SIZE=10
+++ date +%Y-%m-%d_%H-%M-%S
++ export TIME=2019-11-19_18-19-27
++ TIME=2019-11-19_18-19-27
++ export LOG_DIR=./outputs/ScanNet-default/2019-11-19_18-19-27
++ LOG_DIR=./outputs/ScanNet-default/2019-11-19_18-19-27
++ mkdir -p ./outputs/ScanNet-default/2019-11-19_18-19-27
++ LOG=./outputs/ScanNet-default/2019-11-19_18-19-27/2019-11-19_18-19-27.txt
++ python main.py --log_dir ./outputs/ScanNet-default/2019-11-19_18-19-27 --dataset ScannetVoxelization2cmDataset --model Res16UNet34C --lr 1e-1 --batch_size 10 --scheduler PolyLR --max_iter 120000 --train_limit_numpoints 10000000 --train_phase train --scannet_path /root/pyy/ScanNet_data/scans_processed/train --conv1_kernel_size 5
++ tee -a ./outputs/ScanNet-default/2019-11-19_18-19-27/2019-11-19_18-19-27.txt
+ubuntu 11/19 18:19:34 ===> Configurations
+ubuntu 11/19 18:19:34     model: Res16UNet34C
+ubuntu 11/19 18:19:34     conv1_kernel_size: 5
+ubuntu 11/19 18:19:34     weights: None
+ubuntu 11/19 18:19:34     weights_for_inner_model: False
+ubuntu 11/19 18:19:34     dilations: [1, 1, 1, 1]
+ubuntu 11/19 18:19:34     wrapper_type: None
+ubuntu 11/19 18:19:34     wrapper_region_type: 1
+ubuntu 11/19 18:19:34     wrapper_kernel_size: 3
+ubuntu 11/19 18:19:34     wrapper_lr: 0.1
+ubuntu 11/19 18:19:34     meanfield_iterations: 10
+ubuntu 11/19 18:19:34     crf_spatial_sigma: 1
+ubuntu 11/19 18:19:34     crf_chromatic_sigma: 12
+ubuntu 11/19 18:19:34     optimizer: SGD
+ubuntu 11/19 18:19:34     lr: 0.1
+ubuntu 11/19 18:19:34     sgd_momentum: 0.9
+ubuntu 11/19 18:19:34     sgd_dampening: 0.1
+ubuntu 11/19 18:19:34     adam_beta1: 0.9
+ubuntu 11/19 18:19:34     adam_beta2: 0.999
+ubuntu 11/19 18:19:34     weight_decay: 0.0001
+ubuntu 11/19 18:19:34     param_histogram_freq: 100
+ubuntu 11/19 18:19:34     save_param_histogram: False
+ubuntu 11/19 18:19:34     iter_size: 1
+ubuntu 11/19 18:19:34     bn_momentum: 0.02
+ubuntu 11/19 18:19:34     scheduler: PolyLR
+ubuntu 11/19 18:19:34     max_iter: 120000
+ubuntu 11/19 18:19:34     step_size: 20000.0
+ubuntu 11/19 18:19:34     step_gamma: 0.1
+ubuntu 11/19 18:19:34     poly_power: 0.9
+ubuntu 11/19 18:19:34     exp_gamma: 0.95
+ubuntu 11/19 18:19:34     exp_step_size: 445
+ubuntu 11/19 18:19:34     log_dir: ./outputs/ScanNet-default/2019-11-19_18-19-27
+ubuntu 11/19 18:19:34     data_dir: data
+ubuntu 11/19 18:19:34     dataset: ScannetVoxelization2cmDataset
+ubuntu 11/19 18:19:34     temporal_dilation: 30
+ubuntu 11/19 18:19:34     temporal_numseq: 3
+ubuntu 11/19 18:19:34     point_lim: -1
+ubuntu 11/19 18:19:34     pre_point_lim: -1
+ubuntu 11/19 18:19:34     batch_size: 10
+ubuntu 11/19 18:19:34     val_batch_size: 1
+ubuntu 11/19 18:19:34     test_batch_size: 1
+ubuntu 11/19 18:19:34     cache_data: False
+ubuntu 11/19 18:19:34     threads: 1
+ubuntu 11/19 18:19:34     val_threads: 1
+ubuntu 11/19 18:19:34     ignore_label: 255
+ubuntu 11/19 18:19:34     return_transformation: False
+ubuntu 11/19 18:19:34     ignore_duplicate_class: False
+ubuntu 11/19 18:19:34     partial_crop: 0.0
+ubuntu 11/19 18:19:34     train_limit_numpoints: 10000000
+ubuntu 11/19 18:19:34     synthia_path: /home/chrischoy/datasets/Synthia/Synthia4D
+ubuntu 11/19 18:19:34     synthia_camera_path: /home/chrischoy/datasets/Synthia/%s/CameraParams/
+ubuntu 11/19 18:19:34     synthia_camera_intrinsic_file: intrinsics.txt
+ubuntu 11/19 18:19:34     synthia_camera_extrinsics_file: Stereo_Right/Omni_F/%s.txt
+ubuntu 11/19 18:19:34     temporal_rand_dilation: False
+ubuntu 11/19 18:19:34     temporal_rand_numseq: False
+ubuntu 11/19 18:19:34     scannet_path: /root/pyy/ScanNet_data/scans_processed/train
+ubuntu 11/19 18:19:34     stanford3d_online_path: /home/chrischoy/datasets/stanford_preprocessed
+ubuntu 11/19 18:19:34     is_train: True
+ubuntu 11/19 18:19:34     stat_freq: 10
+ubuntu 11/19 18:19:34     test_stat_freq: 100
+ubuntu 11/19 18:19:34     save_freq: 1000
+ubuntu 11/19 18:19:34     val_freq: 100
+ubuntu 11/19 18:19:34     empty_cache_freq: 1
+ubuntu 11/19 18:19:34     train_phase: train
+ubuntu 11/19 18:19:34     val_phase: val
+ubuntu 11/19 18:19:34     overwrite_weights: True
+ubuntu 11/19 18:19:34     resume: None
+ubuntu 11/19 18:19:34     resume_optimizer: True
+ubuntu 11/19 18:19:34     eval_upsample: False
+ubuntu 11/19 18:19:34     lenient_weight_loading: False
+ubuntu 11/19 18:19:34     use_feat_aug: True
+ubuntu 11/19 18:19:34     data_aug_color_trans_ratio: 0.1
+ubuntu 11/19 18:19:34     data_aug_color_jitter_std: 0.05
+ubuntu 11/19 18:19:34     data_aug_height_trans_std: 1
+ubuntu 11/19 18:19:34     data_aug_height_jitter_std: 0.1
+ubuntu 11/19 18:19:34     data_aug_normal_jitter_std: 0.01
+ubuntu 11/19 18:19:34     normalize_color: True
+ubuntu 11/19 18:19:34     data_aug_scale_min: 0.9
+ubuntu 11/19 18:19:34     data_aug_scale_max: 1.1
+ubuntu 11/19 18:19:34     data_aug_hue_max: 0.5
+ubuntu 11/19 18:19:34     data_aug_saturation_max: 0.2
+ubuntu 11/19 18:19:34     visualize: False
+ubuntu 11/19 18:19:34     test_temporal_average: False
+ubuntu 11/19 18:19:34     visualize_path: outputs/visualize
+ubuntu 11/19 18:19:34     save_prediction: False
+ubuntu 11/19 18:19:34     save_pred_dir: outputs/pred
+ubuntu 11/19 18:19:34     test_phase: test
+ubuntu 11/19 18:19:34     evaluate_original_pointcloud: False
+ubuntu 11/19 18:19:34     test_original_pointcloud: False
+ubuntu 11/19 18:19:34     is_cuda: True
+ubuntu 11/19 18:19:34     load_path: 
+ubuntu 11/19 18:19:34     log_step: 50
+ubuntu 11/19 18:19:34     log_level: INFO
+ubuntu 11/19 18:19:34     num_gpu: 1
+ubuntu 11/19 18:19:34     seed: 123
+ubuntu 11/19 18:19:34 ===> Initializing dataloader
+ubuntu 11/19 18:19:34 Loading ScannetVoxelization2cmDataset: scannetv2_train.txt
+ubuntu 11/19 18:19:34 Loading ScannetVoxelization2cmDataset: scannetv2_val.txt
+ubuntu 11/19 18:19:34 ===> Building model
+ubuntu 11/19 18:19:35 ===> Number of trainable parameters: Res16UNet34C: 37856052
+ubuntu 11/19 18:19:35 Res16UNet34C(
+  (conv0p1s1): MinkowskiConvolution(in=3, out=32, region_type=RegionType.HYPERCUBE, kernel_size=[5, 5, 5], stride=[1, 1, 1], dilation=[1, 1, 1])
+  (bn0): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (conv1p1s2): MinkowskiConvolution(in=32, out=32, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block1): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=32, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=32, out=32, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=32, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=32, out=32, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (conv2p2s2): MinkowskiConvolution(in=32, out=32, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block2): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=64, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=64, out=64, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=32, out=64, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=64, out=64, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=64, out=64, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (2): BasicBlock(
+      (conv1): MinkowskiConvolution(in=64, out=64, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=64, out=64, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (conv3p4s2): MinkowskiConvolution(in=64, out=64, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn3): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block3): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=64, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=64, out=128, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (2): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (3): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (conv4p8s2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn4): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block4): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=128, out=256, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (2): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (3): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (4): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (5): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (convtr4p16s2): MinkowskiConvolutionTranspose(in=256, out=256, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr4): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block5): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=384, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=384, out=256, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (convtr5p8s2): MinkowskiConvolutionTranspose(in=256, out=128, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr5): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block6): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=192, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=192, out=128, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (convtr6p4s2): MinkowskiConvolutionTranspose(in=128, out=96, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr6): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block7): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=96, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=128, out=96, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=96, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=96, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (convtr7p2s2): MinkowskiConvolutionTranspose(in=96, out=96, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr7): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block8): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=96, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=128, out=96, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=96, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=96, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (final): MinkowskiConvolution(in=96, out=20, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+  (relu): MinkowskiReLU()
+)
+ubuntu 11/19 18:19:38 ===> Start training
+ubuntu 11/19 18:21:41 ===> Epoch[1](10/121): Loss 2.0141	LR: 9.999e-02	Score 53.249	Data time: 1.1354, Iter time: 11.9794
+ubuntu 11/19 18:25:02 ===> Epoch[1](20/121): Loss 1.6824	LR: 9.998e-02	Score 57.573	Data time: 1.2666, Iter time: 19.0905
+ubuntu 11/19 18:28:15 ===> Epoch[1](30/121): Loss 1.7177	LR: 9.998e-02	Score 55.415	Data time: 1.4095, Iter time: 18.6018
+ubuntu 11/19 18:31:20 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/19 18:31:38 ===> Epoch[1](40/121): Loss 1.6668	LR: 9.997e-02	Score 57.006	Data time: 1.5872, Iter time: 19.1900
+ubuntu 11/19 18:34:35 ===> Epoch[1](50/121): Loss 1.6370	LR: 9.996e-02	Score 56.542	Data time: 1.3419, Iter time: 17.0006
+ubuntu 11/19 18:37:53 ===> Epoch[1](60/121): Loss 1.5323	LR: 9.995e-02	Score 58.289	Data time: 1.4794, Iter time: 18.8645
+ubuntu 11/19 18:41:02 ===> Epoch[1](70/121): Loss 1.4437	LR: 9.995e-02	Score 60.994	Data time: 1.5421, Iter time: 18.1267
+ubuntu 11/19 18:44:15 ===> Epoch[1](80/121): Loss 1.5354	LR: 9.994e-02	Score 59.683	Data time: 1.3290, Iter time: 18.4009
+ubuntu 11/19 18:47:39 ===> Epoch[1](90/121): Loss 1.4511	LR: 9.993e-02	Score 60.583	Data time: 1.5498, Iter time: 19.4118
+ubuntu 11/19 18:50:06 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 18:50:44 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 18:50:57 ===> Epoch[1](100/121): Loss 1.3941	LR: 9.992e-02	Score 62.158	Data time: 1.4443, Iter time: 18.9965
+ubuntu 11/19 18:50:57 ===> Start testing
+ubuntu 11/19 18:54:43 101/312: Data time: 0.0049, Iter time: 2.8115	Loss 0.705 (AVG: 1.383)	Score 78.728 (AVG: 62.589)	mIOU 10.272 mAP 24.034 mAcc 15.743
+IOU: 61.299 91.122 0.000 0.000 27.210 0.000 23.153 0.000 2.665 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+mAP: 62.609 92.693 14.202 28.953 35.258 23.681 32.874 14.556 20.809 27.252 2.259 14.216 17.026 25.164 6.601 11.651 16.794 10.896 12.060 11.135
+mAcc: 87.557 98.463 0.000 0.000 86.396 0.000 39.493 0.000 2.953 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+
+ubuntu 11/19 18:58:29 201/312: Data time: 0.0045, Iter time: 2.5767	Loss 1.821 (AVG: 1.418)	Score 69.255 (AVG: 61.586)	mIOU 10.183 mAP 24.311 mAcc 15.758
+IOU: 60.161 91.315 0.000 0.000 26.838 0.000 22.382 0.000 2.972 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+mAP: 62.082 93.571 15.071 27.385 34.192 24.899 32.980 15.043 22.431 27.085 2.419 15.547 18.449 25.301 6.286 13.352 16.732 10.369 12.898 10.121
+mAcc: 87.465 98.699 0.000 0.000 84.521 0.000 41.184 0.000 3.296 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+
+ubuntu 11/19 19:02:18 301/312: Data time: 0.0044, Iter time: 2.1751	Loss 1.519 (AVG: 1.407)	Score 56.705 (AVG: 61.644)	mIOU 10.278 mAP 24.235 mAcc 15.888
+IOU: 58.835 91.693 0.000 0.000 28.043 0.000 24.272 0.000 2.724 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+mAP: 61.698 93.798 14.578 27.442 36.263 24.514 35.077 15.305 22.514 27.772 2.634 14.733 18.343 25.856 5.540 12.076 15.060 9.239 11.775 10.489
+mAcc: 87.695 98.769 0.000 0.000 84.591 0.000 43.696 0.000 3.002 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+
+ubuntu 11/19 19:02:45 312/312: Data time: 0.0087, Iter time: 1.2099	Loss 1.417 (AVG: 1.410)	Score 62.077 (AVG: 61.467)	mIOU 10.236 mAP 24.203 mAcc 15.868
+IOU: 58.725 91.753 0.000 0.000 27.551 0.000 23.989 0.000 2.700 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+mAP: 61.852 93.923 14.457 26.933 36.506 24.203 34.813 15.535 22.152 28.306 2.670 14.567 19.076 25.678 5.337 11.856 14.904 9.273 11.541 10.482
+mAcc: 87.691 98.799 0.000 0.000 84.557 0.000 43.328 0.000 2.980 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+
+ubuntu 11/19 19:02:45 Finished test. Elapsed time: 708.5958
+ubuntu 11/19 19:02:46 Checkpoint saved to ./outputs/ScanNet-default/2019-11-19_18-19-27/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/19 19:02:46 Current best mIoU: 10.236 at iter 100
+ubuntu 11/19 19:06:06 ===> Epoch[1](110/121): Loss 1.3473	LR: 9.992e-02	Score 64.490	Data time: 1.5033, Iter time: 19.0003
+ubuntu 11/19 19:09:14 ===> Epoch[2](120/121): Loss 1.3609	LR: 9.991e-02	Score 61.118	Data time: 1.1905, Iter time: 17.8753
+ubuntu 11/19 19:09:15 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/19 19:12:37 ===> Epoch[2](130/121): Loss 1.3293	LR: 9.990e-02	Score 62.814	Data time: 1.4614, Iter time: 19.2455
+ubuntu 11/19 19:15:34 ===> Epoch[2](140/121): Loss 1.4086	LR: 9.989e-02	Score 60.974	Data time: 1.4162, Iter time: 16.8656
+ubuntu 11/19 19:17:40 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 19:18:57 ===> Epoch[2](150/121): Loss 1.3187	LR: 9.989e-02	Score 62.658	Data time: 1.6612, Iter time: 19.3241
+ubuntu 11/19 19:22:06 ===> Epoch[2](160/121): Loss 1.3074	LR: 9.988e-02	Score 64.136	Data time: 1.3504, Iter time: 18.3057
+ubuntu 11/19 19:25:30 ===> Epoch[2](170/121): Loss 1.2892	LR: 9.987e-02	Score 62.879	Data time: 1.5826, Iter time: 19.5399
+ubuntu 11/19 19:28:38 ===> Epoch[2](180/121): Loss 1.2704	LR: 9.986e-02	Score 63.951	Data time: 1.5375, Iter time: 17.6492
+ubuntu 11/19 19:31:48 ===> Epoch[2](190/121): Loss 1.1664	LR: 9.986e-02	Score 66.860	Data time: 1.4806, Iter time: 18.2116
+ubuntu 11/19 19:34:53 ===> Epoch[2](200/121): Loss 1.1948	LR: 9.985e-02	Score 65.928	Data time: 1.3814, Iter time: 17.7704
+ubuntu 11/19 19:34:53 ===> Start testing
+ubuntu 11/19 19:39:04 101/312: Data time: 0.0048, Iter time: 1.7469	Loss 0.787 (AVG: 1.294)	Score 80.807 (AVG: 63.488)	mIOU 11.926 mAP 26.528 mAcc 17.844
+IOU: 59.924 93.582 0.002 0.060 40.833 6.706 23.259 0.000 2.859 8.837 0.000 0.000 0.005 0.000 0.000 0.000 0.000 0.000 0.000 2.454
+mAP: 65.273 94.902 11.754 19.913 48.721 28.191 41.281 17.681 19.859 37.297 3.570 17.596 20.774 29.241 5.046 17.495 16.259 10.150 12.526 13.034
+mAcc: 96.042 98.363 0.002 0.061 85.980 14.390 45.798 0.000 3.122 10.379 0.000 0.000 0.006 0.000 0.000 0.000 0.000 0.000 0.000 2.737
+
+ubuntu 11/19 19:42:47 201/312: Data time: 0.0119, Iter time: 1.6889	Loss 1.887 (AVG: 1.268)	Score 45.738 (AVG: 63.863)	mIOU 12.093 mAP 27.018 mAcc 17.853
+IOU: 60.565 93.396 0.002 0.070 41.114 5.810 26.293 0.000 4.000 7.391 0.000 0.000 0.006 0.000 0.000 0.000 0.000 0.000 0.000 3.207
+mAP: 66.554 95.541 13.360 21.629 49.625 30.503 44.194 15.548 24.677 32.874 3.705 17.406 20.498 30.144 5.687 15.870 17.960 9.768 12.451 12.370
+mAcc: 95.586 98.428 0.002 0.070 85.369 14.011 46.794 0.000 4.362 8.725 0.000 0.000 0.006 0.000 0.000 0.000 0.000 0.000 0.000 3.710
+
+ubuntu 11/19 19:46:30 301/312: Data time: 0.0042, Iter time: 1.7159	Loss 0.709 (AVG: 1.248)	Score 76.224 (AVG: 64.655)	mIOU 12.196 mAP 27.655 mAcc 17.851
+IOU: 61.747 93.603 0.001 0.062 40.949 5.439 26.860 0.000 4.343 7.667 0.000 0.000 0.007 0.000 0.000 0.000 0.000 0.000 0.000 3.250
+mAP: 66.283 95.312 12.443 21.216 50.200 34.565 43.721 17.580 24.961 34.972 3.583 19.357 21.233 28.761 5.645 19.032 18.803 11.202 12.492 11.738
+mAcc: 95.450 98.519 0.001 0.063 85.065 12.263 48.125 0.000 4.725 8.964 0.000 0.000 0.007 0.000 0.000 0.000 0.000 0.000 0.000 3.839
+
+ubuntu 11/19 19:46:52 312/312: Data time: 0.0021, Iter time: 1.0599	Loss 1.316 (AVG: 1.244)	Score 61.803 (AVG: 64.763)	mIOU 12.190 mAP 27.849 mAcc 17.821
+IOU: 61.883 93.660 0.001 0.065 40.846 5.444 26.799 0.000 4.364 7.473 0.000 0.000 0.007 0.000 0.000 0.000 0.000 0.000 0.000 3.251
+mAP: 66.535 95.356 12.609 21.310 50.136 34.107 44.138 17.698 25.135 35.295 3.552 20.199 21.221 28.480 5.958 19.987 19.150 11.207 12.989 11.913
+mAcc: 95.508 98.539 0.001 0.066 84.539 12.436 48.016 0.000 4.759 8.722 0.000 0.000 0.007 0.000 0.000 0.000 0.000 0.000 0.000 3.832
+
+ubuntu 11/19 19:46:52 Finished test. Elapsed time: 719.7233
+ubuntu 11/19 19:46:53 Checkpoint saved to ./outputs/ScanNet-default/2019-11-19_18-19-27/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/19 19:46:53 Current best mIoU: 12.190 at iter 200
+ubuntu 11/19 19:48:05 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 19:49:58 ===> Epoch[2](210/121): Loss 1.2748	LR: 9.984e-02	Score 64.561	Data time: 1.4158, Iter time: 17.3359
+ubuntu 11/19 19:53:19 ===> Epoch[2](220/121): Loss 1.2139	LR: 9.983e-02	Score 64.629	Data time: 1.7361, Iter time: 18.7097
+ubuntu 11/19 19:56:48 ===> Epoch[2](230/121): Loss 1.1988	LR: 9.983e-02	Score 65.413	Data time: 1.7484, Iter time: 20.0983
+ubuntu 11/19 20:00:16 ===> Epoch[3](240/121): Loss 1.2293	LR: 9.982e-02	Score 64.728	Data time: 1.7240, Iter time: 20.0600
+ubuntu 11/19 20:03:30 ===> Epoch[3](250/121): Loss 1.1219	LR: 9.981e-02	Score 67.671	Data time: 1.6781, Iter time: 18.8543
+ubuntu 11/19 20:06:44 ===> Epoch[3](260/121): Loss 1.2234	LR: 9.980e-02	Score 65.212	Data time: 1.6818, Iter time: 18.6724
+ubuntu 11/19 20:09:52 ===> Epoch[3](270/121): Loss 1.2281	LR: 9.980e-02	Score 64.251	Data time: 1.3430, Iter time: 17.6895
+ubuntu 11/19 20:13:09 ===> Epoch[3](280/121): Loss 1.1216	LR: 9.979e-02	Score 67.860	Data time: 1.4121, Iter time: 18.7637
+ubuntu 11/19 20:14:40 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 20:16:35 ===> Epoch[3](290/121): Loss 1.2907	LR: 9.978e-02	Score 61.751	Data time: 1.6353, Iter time: 19.8034
+ubuntu 11/19 20:19:15 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/19 20:19:49 ===> Epoch[3](300/121): Loss 1.1710	LR: 9.977e-02	Score 65.519	Data time: 1.4733, Iter time: 18.6273
+ubuntu 11/19 20:19:49 ===> Start testing
+ubuntu 11/19 20:23:48 101/312: Data time: 0.0055, Iter time: 1.0504	Loss 0.862 (AVG: 1.467)	Score 77.464 (AVG: 63.410)	mIOU 12.525 mAP 27.670 mAcc 18.765
+IOU: 61.188 92.568 9.146 0.000 35.307 3.275 32.597 0.087 5.805 7.370 0.000 0.116 0.255 0.033 0.000 0.000 0.000 0.000 0.000 2.747
+mAP: 66.648 92.652 18.926 14.480 57.810 28.743 47.745 18.975 21.049 32.674 5.698 23.820 14.712 35.756 5.103 26.245 9.006 12.056 8.934 12.368
+mAcc: 87.108 97.270 12.011 0.000 88.826 4.907 64.919 0.091 6.611 9.745 0.000 0.116 0.270 0.033 0.000 0.000 0.000 0.000 0.000 3.397
+
+ubuntu 11/19 20:27:46 201/312: Data time: 0.0044, Iter time: 2.3690	Loss 0.751 (AVG: 1.461)	Score 84.816 (AVG: 62.976)	mIOU 12.346 mAP 28.426 mAcc 18.754
+IOU: 60.808 92.484 7.153 0.000 34.475 3.850 31.242 0.317 5.546 7.906 0.000 0.101 0.228 0.024 0.000 0.000 0.000 0.000 0.000 2.776
+mAP: 66.996 93.885 16.903 16.050 56.250 34.555 47.682 19.179 21.792 37.719 5.817 24.221 15.738 31.668 5.884 25.428 10.060 14.893 11.381 12.420
+mAcc: 86.807 97.372 9.792 0.000 89.894 5.404 66.085 0.327 6.201 9.469 0.000 0.101 0.240 0.024 0.000 0.000 0.000 0.000 0.000 3.357
+
+ubuntu 11/19 20:31:36 301/312: Data time: 0.0023, Iter time: 1.0155	Loss 1.867 (AVG: 1.427)	Score 54.855 (AVG: 63.617)	mIOU 12.436 mAP 29.136 mAcc 18.783
+IOU: 61.197 92.439 6.152 0.000 36.414 3.422 32.086 0.241 5.104 8.521 0.000 0.089 0.250 0.015 0.000 0.000 0.000 0.000 0.000 2.788
+mAP: 66.641 94.108 15.456 18.401 56.837 32.097 49.810 19.245 22.259 35.917 6.222 25.963 15.814 32.118 6.298 27.797 11.799 14.345 17.664 13.938
+mAcc: 87.397 97.433 8.567 0.000 90.458 4.847 67.213 0.248 5.659 10.134 0.000 0.089 0.263 0.015 0.000 0.000 0.000 0.000 0.000 3.329
+
+ubuntu 11/19 20:32:02 312/312: Data time: 0.0046, Iter time: 1.9197	Loss 3.168 (AVG: 1.436)	Score 44.858 (AVG: 63.562)	mIOU 12.431 mAP 29.140 mAcc 18.771
+IOU: 61.227 92.396 6.126 0.000 36.450 3.459 32.128 0.234 5.087 8.381 0.000 0.083 0.244 0.015 0.000 0.000 0.000 0.000 0.000 2.789
+mAP: 66.671 94.120 15.595 18.343 56.848 32.258 50.304 19.238 22.025 36.403 6.227 25.386 16.198 32.118 6.600 26.975 11.658 14.174 17.664 13.990
+mAcc: 87.501 97.426 8.503 0.000 90.526 4.924 67.012 0.241 5.636 9.938 0.000 0.083 0.257 0.015 0.000 0.000 0.000 0.000 0.000 3.355
+
+ubuntu 11/19 20:32:02 Finished test. Elapsed time: 732.6151
+ubuntu 11/19 20:32:03 Checkpoint saved to ./outputs/ScanNet-default/2019-11-19_18-19-27/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/19 20:32:03 Current best mIoU: 12.431 at iter 300
+ubuntu 11/19 20:35:02 ===> Epoch[3](310/121): Loss 1.1550	LR: 9.977e-02	Score 67.537	Data time: 1.5762, Iter time: 17.2946
+ubuntu 11/19 20:37:36 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 20:38:30 ===> Epoch[3](320/121): Loss 1.1392	LR: 9.976e-02	Score 66.376	Data time: 1.8325, Iter time: 19.8444
+ubuntu 11/19 20:41:43 ===> Epoch[3](330/121): Loss 1.2251	LR: 9.975e-02	Score 64.478	Data time: 1.6266, Iter time: 18.2130
+ubuntu 11/19 20:45:08 ===> Epoch[3](340/121): Loss 1.1378	LR: 9.974e-02	Score 66.212	Data time: 1.7249, Iter time: 19.8163
+ubuntu 11/19 20:48:18 ===> Epoch[3](350/121): Loss 1.0665	LR: 9.974e-02	Score 69.479	Data time: 1.5706, Iter time: 17.6299
+ubuntu 11/19 20:51:38 ===> Epoch[4](360/121): Loss 1.2231	LR: 9.973e-02	Score 63.599	Data time: 1.6215, Iter time: 19.4028
+ubuntu 11/19 20:55:04 ===> Epoch[4](370/121): Loss 1.1663	LR: 9.972e-02	Score 65.803	Data time: 1.5426, Iter time: 19.5029
+ubuntu 11/19 20:57:59 ===> Epoch[4](380/121): Loss 1.1747	LR: 9.971e-02	Score 64.929	Data time: 1.5485, Iter time: 16.8965
+ubuntu 11/19 21:01:10 ===> Epoch[4](390/121): Loss 1.1526	LR: 9.971e-02	Score 65.213	Data time: 1.5064, Iter time: 17.9966
+ubuntu 11/19 21:02:39 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/19 21:04:18 ===> Epoch[4](400/121): Loss 1.1681	LR: 9.970e-02	Score 66.377	Data time: 1.4442, Iter time: 18.0321
+ubuntu 11/19 21:04:18 ===> Start testing
+ubuntu 11/19 21:08:32 101/312: Data time: 0.0025, Iter time: 2.0144	Loss 1.503 (AVG: 1.688)	Score 58.523 (AVG: 64.824)	mIOU 15.858 mAP 32.940 mAcc 22.810
+IOU: 58.724 94.073 2.080 15.327 49.011 2.508 44.117 0.001 9.865 27.303 0.000 0.008 0.061 10.692 0.000 0.000 0.000 0.000 0.000 3.398
+mAP: 62.964 95.729 17.005 42.500 64.977 30.225 54.570 19.315 25.352 41.319 7.036 24.300 25.632 34.197 6.839 24.700 22.174 17.984 25.084 16.895
+mAcc: 90.551 98.169 2.197 22.753 95.184 4.766 56.156 0.001 13.408 48.751 0.000 0.008 0.061 20.431 0.000 0.000 0.000 0.000 0.000 3.757
+
+ubuntu 11/19 21:12:15 201/312: Data time: 0.0108, Iter time: 1.5298	Loss 1.048 (AVG: 2.022)	Score 67.787 (AVG: 66.358)	mIOU 15.923 mAP 34.580 mAcc 22.760
+IOU: 61.929 93.806 2.422 15.772 47.812 3.273 42.347 0.001 9.611 26.261 0.000 0.004 0.099 10.613 0.000 0.000 0.000 0.000 0.000 4.519
+mAP: 66.267 94.754 17.469 45.324 64.403 35.450 55.095 19.298 24.576 46.076 8.021 32.944 28.206 34.754 7.075 27.506 18.988 18.485 28.966 17.935
+mAcc: 90.263 97.837 2.557 23.652 94.005 5.400 55.583 0.001 13.618 46.565 0.000 0.004 0.099 20.432 0.000 0.000 0.000 0.000 0.000 5.174
+
+ubuntu 11/19 21:16:00 301/312: Data time: 0.0044, Iter time: 1.3722	Loss 1.644 (AVG: 1.804)	Score 58.272 (AVG: 66.624)	mIOU 15.929 mAP 34.767 mAcc 22.657
+IOU: 62.457 93.820 2.439 15.310 48.722 3.463 42.588 0.002 8.600 26.752 0.000 0.004 0.095 9.853 0.000 0.000 0.000 0.000 0.000 4.477
+mAP: 66.891 94.686 18.186 45.846 65.596 34.797 55.634 20.072 23.727 44.694 7.921 31.392 29.398 36.919 6.142 27.901 22.554 18.187 27.371 17.434
+mAcc: 90.924 97.952 2.572 23.166 93.506 5.614 56.423 0.002 11.938 47.225 0.000 0.004 0.095 18.523 0.000 0.000 0.000 0.000 0.000 5.193
+
+ubuntu 11/19 21:16:27 312/312: Data time: 0.0048, Iter time: 1.7733	Loss 1.167 (AVG: 1.788)	Score 59.579 (AVG: 66.479)	mIOU 15.876 mAP 34.548 mAcc 22.625
+IOU: 62.331 93.860 2.387 15.012 48.635 3.477 42.197 0.002 8.734 26.562 0.000 0.004 0.095 9.770 0.000 0.000 0.000 0.000 0.000 4.464
+mAP: 66.811 94.521 18.553 45.846 65.205 34.749 55.010 20.120 23.711 43.820 7.916 31.399 29.575 36.444 6.103 27.901 21.860 17.921 26.356 17.138
+mAcc: 90.940 97.984 2.511 23.166 93.488 5.595 55.849 0.002 12.113 47.281 0.000 0.004 0.095 18.275 0.000 0.000 0.000 0.000 0.000 5.199
+
+ubuntu 11/19 21:16:27 Finished test. Elapsed time: 728.7465
+ubuntu 11/19 21:16:29 Checkpoint saved to ./outputs/ScanNet-default/2019-11-19_18-19-27/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/19 21:16:29 Current best mIoU: 15.876 at iter 400
+ubuntu 11/19 21:17:26 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 21:19:54 ===> Epoch[4](410/121): Loss 1.1375	LR: 9.969e-02	Score 66.530	Data time: 1.7332, Iter time: 19.9793
+ubuntu 11/19 21:23:21 ===> Epoch[4](420/121): Loss 1.1367	LR: 9.968e-02	Score 66.255	Data time: 1.8797, Iter time: 20.1392
+ubuntu 11/19 21:24:07 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 21:26:45 ===> Epoch[4](430/121): Loss 1.0341	LR: 9.968e-02	Score 69.630	Data time: 1.7234, Iter time: 19.3746
+ubuntu 11/19 21:29:58 ===> Epoch[4](440/121): Loss 1.1263	LR: 9.967e-02	Score 66.905	Data time: 1.4228, Iter time: 18.4179
+ubuntu 11/19 21:33:21 ===> Epoch[4](450/121): Loss 1.1643	LR: 9.966e-02	Score 66.181	Data time: 1.6725, Iter time: 19.4430
+ubuntu 11/19 21:36:33 ===> Epoch[4](460/121): Loss 1.0397	LR: 9.965e-02	Score 69.272	Data time: 1.5079, Iter time: 18.2225
+ubuntu 11/19 21:39:36 ===> Epoch[4](470/121): Loss 1.0756	LR: 9.965e-02	Score 68.072	Data time: 1.5232, Iter time: 17.4702
+ubuntu 11/19 21:42:50 ===> Epoch[5](480/121): Loss 1.0803	LR: 9.964e-02	Score 68.439	Data time: 1.6145, Iter time: 18.3920
+ubuntu 11/19 21:44:53 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 21:46:13 ===> Epoch[5](490/121): Loss 1.0800	LR: 9.963e-02	Score 67.958	Data time: 1.8961, Iter time: 19.4748
+ubuntu 11/19 21:49:16 ===> Epoch[5](500/121): Loss 1.0823	LR: 9.962e-02	Score 68.494	Data time: 1.2683, Iter time: 17.6063
+ubuntu 11/19 21:49:16 ===> Start testing
+ubuntu 11/19 21:53:04 101/312: Data time: 0.0043, Iter time: 3.0569	Loss 1.193 (AVG: 1.182)	Score 62.831 (AVG: 69.441)	mIOU 17.652 mAP 39.949 mAcc 25.321
+IOU: 66.232 94.183 13.807 19.289 60.997 3.788 45.561 0.001 1.808 24.493 0.000 0.881 0.069 17.199 0.000 0.000 0.000 0.000 0.000 4.739
+mAP: 69.700 96.524 27.381 48.453 78.133 49.405 58.769 19.453 33.323 54.295 9.682 28.829 29.749 50.420 7.986 42.865 27.979 19.051 27.013 19.976
+mAcc: 93.874 98.384 17.978 52.568 89.271 4.075 68.874 0.001 1.853 42.171 0.000 0.905 0.070 31.177 0.000 0.000 0.000 0.000 0.000 5.212
+
+ubuntu 11/19 21:56:59 201/312: Data time: 0.0040, Iter time: 0.8939	Loss 0.573 (AVG: 1.105)	Score 84.887 (AVG: 69.756)	mIOU 17.774 mAP 39.232 mAcc 25.313
+IOU: 66.231 94.449 11.841 19.093 58.831 4.235 45.635 0.001 1.715 32.620 0.000 0.653 0.100 16.150 0.000 0.000 0.000 0.000 0.000 3.930
+mAP: 69.640 96.764 25.493 49.772 76.385 52.081 55.737 20.838 28.310 48.308 8.822 25.894 27.603 47.939 7.099 40.913 31.583 22.953 28.671 19.837
+mAcc: 93.922 98.334 16.906 52.474 88.864 4.592 65.606 0.001 1.749 51.396 0.000 0.670 0.101 27.384 0.000 0.000 0.000 0.000 0.000 4.271
+
+ubuntu 11/19 22:01:19 301/312: Data time: 0.0020, Iter time: 1.0384	Loss 0.496 (AVG: 1.107)	Score 87.526 (AVG: 68.812)	mIOU 17.791 mAP 38.940 mAcc 25.545
+IOU: 65.123 94.347 11.533 18.245 58.593 3.966 46.438 0.002 1.585 36.216 0.000 0.669 0.093 15.607 0.000 0.000 0.000 0.000 0.000 3.403
+mAP: 68.063 96.952 25.238 44.587 75.052 50.219 55.844 21.729 27.521 46.655 8.721 27.543 29.095 47.071 6.551 42.254 36.792 21.546 28.882 18.488
+mAcc: 93.757 98.052 17.093 52.152 88.387 4.305 67.984 0.002 1.615 57.037 0.000 0.687 0.093 26.080 0.000 0.000 0.000 0.000 0.000 3.654
+
+ubuntu 11/19 22:01:51 312/312: Data time: 0.0045, Iter time: 1.6563	Loss 0.936 (AVG: 1.105)	Score 73.809 (AVG: 68.830)	mIOU 17.864 mAP 38.704 mAcc 25.579
+IOU: 65.078 94.366 11.817 18.722 58.547 3.886 46.265 0.002 1.567 37.450 0.000 0.647 0.097 15.453 0.000 0.000 0.000 0.000 0.000 3.374
+mAP: 68.094 96.700 25.518 43.873 75.094 50.369 55.769 22.027 27.197 47.005 8.570 27.115 28.372 46.226 6.586 41.587 36.601 21.221 27.939 18.215
+mAcc: 93.782 98.057 17.443 52.669 88.568 4.218 67.953 0.002 1.597 57.063 0.000 0.664 0.097 25.843 0.000 0.000 0.000 0.000 0.000 3.628
+
+ubuntu 11/19 22:01:51 Finished test. Elapsed time: 755.1291
+ubuntu 11/19 22:01:52 Checkpoint saved to ./outputs/ScanNet-default/2019-11-19_18-19-27/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/19 22:01:53 Current best mIoU: 17.864 at iter 500
+ubuntu 11/19 22:05:30 ===> Epoch[5](510/121): Loss 1.0510	LR: 9.962e-02	Score 68.427	Data time: 1.8587, Iter time: 20.9863
+ubuntu 11/19 22:08:36 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/19 22:08:56 ===> Epoch[5](520/121): Loss 1.1144	LR: 9.961e-02	Score 66.883	Data time: 1.8723, Iter time: 19.8590
+ubuntu 11/19 22:11:04 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 22:11:56 ===> Epoch[5](530/121): Loss 1.0255	LR: 9.960e-02	Score 69.180	Data time: 1.5975, Iter time: 17.2118
+ubuntu 11/19 22:15:01 ===> Epoch[5](540/121): Loss 1.0363	LR: 9.959e-02	Score 69.142	Data time: 1.6172, Iter time: 17.5354
+ubuntu 11/19 22:18:14 ===> Epoch[5](550/121): Loss 1.0642	LR: 9.959e-02	Score 67.254	Data time: 1.6231, Iter time: 18.2618
+ubuntu 11/19 22:21:17 ===> Epoch[5](560/121): Loss 1.0214	LR: 9.958e-02	Score 69.261	Data time: 1.5594, Iter time: 17.6684
+ubuntu 11/19 22:24:30 ===> Epoch[5](570/121): Loss 1.0723	LR: 9.957e-02	Score 68.041	Data time: 1.4644, Iter time: 18.3147
+ubuntu 11/19 22:27:52 ===> Epoch[5](580/121): Loss 1.0174	LR: 9.956e-02	Score 69.112	Data time: 1.6171, Iter time: 19.3096
+ubuntu 11/19 22:31:02 ===> Epoch[5](590/121): Loss 1.0648	LR: 9.956e-02	Score 68.674	Data time: 1.6837, Iter time: 18.0764
+ubuntu 11/19 22:34:27 ===> Epoch[6](600/121): Loss 1.0474	LR: 9.955e-02	Score 67.987	Data time: 1.6762, Iter time: 19.4415
+ubuntu 11/19 22:34:27 ===> Start testing
+ubuntu 11/19 22:38:40 101/312: Data time: 0.0043, Iter time: 1.5220	Loss 0.198 (AVG: 0.979)	Score 96.887 (AVG: 70.552)	mIOU 21.147 mAP 40.765 mAcc 30.254
+IOU: 65.999 95.139 22.809 25.040 67.357 16.084 49.516 0.000 11.089 34.737 0.000 6.339 0.097 23.075 0.000 0.000 0.022 0.188 0.140 5.305
+mAP: 67.784 94.761 29.654 48.433 74.865 57.889 58.997 22.935 28.511 45.857 7.963 29.343 30.028 61.582 4.682 41.008 38.934 19.155 36.608 16.320
+mAcc: 86.390 98.097 49.998 38.939 94.500 23.994 61.360 0.000 13.838 56.310 0.000 7.458 0.097 67.593 0.000 0.000 0.022 0.190 0.140 6.143
+
+ubuntu 11/19 22:42:38 201/312: Data time: 0.0028, Iter time: 1.4359	Loss 1.206 (AVG: 1.015)	Score 55.160 (AVG: 69.516)	mIOU 20.580 mAP 42.080 mAcc 29.344
+IOU: 66.169 94.659 22.176 22.102 60.017 18.516 42.162 0.000 10.820 39.251 0.000 8.393 0.097 21.402 0.000 0.000 0.149 0.260 0.179 5.248
+mAP: 68.936 95.046 30.238 46.498 73.191 60.212 58.822 24.060 27.579 49.246 9.059 34.145 37.224 54.846 5.248 44.380 47.707 20.916 37.615 16.636
+mAcc: 87.751 98.006 49.105 36.672 92.046 23.783 55.334 0.000 13.505 52.638 0.000 10.002 0.097 61.279 0.000 0.000 0.151 0.263 0.180 6.068
+
+ubuntu 11/19 22:46:57 301/312: Data time: 0.0035, Iter time: 1.8693	Loss 1.272 (AVG: 1.032)	Score 62.913 (AVG: 69.242)	mIOU 20.638 mAP 42.304 mAcc 29.701
+IOU: 65.908 94.330 21.689 25.509 60.507 18.947 42.669 0.000 11.227 37.205 0.000 8.671 0.083 20.726 0.000 0.000 0.139 0.266 0.157 4.731
+mAP: 68.580 95.018 31.779 49.949 73.059 61.490 57.555 24.249 28.006 51.158 8.615 30.983 36.173 56.162 4.895 45.270 49.418 23.325 33.136 17.264
+mAcc: 88.117 97.985 50.031 40.775 91.698 24.779 55.522 0.000 13.803 49.453 0.000 11.005 0.083 64.858 0.000 0.000 0.140 0.269 0.158 5.346
+
+ubuntu 11/19 22:47:23 312/312: Data time: 0.0015, Iter time: 1.0530	Loss 1.186 (AVG: 1.033)	Score 65.695 (AVG: 69.281)	mIOU 20.656 mAP 42.138 mAcc 29.735
+IOU: 66.138 94.319 22.469 25.407 60.530 19.352 42.987 0.000 11.351 36.332 0.000 8.494 0.082 20.213 0.000 0.000 0.136 0.257 0.151 4.912
+mAP: 68.616 94.916 31.839 50.148 72.509 61.711 57.433 23.876 28.690 51.158 8.481 30.609 35.919 56.162 4.844 44.042 49.394 22.709 32.252 17.456
+mAcc: 88.224 98.006 50.032 40.450 91.724 25.311 55.887 0.000 13.911 49.453 0.000 10.656 0.082 64.858 0.000 0.000 0.138 0.260 0.152 5.564
+
+ubuntu 11/19 22:47:23 Finished test. Elapsed time: 776.0033
+ubuntu 11/19 22:47:24 Checkpoint saved to ./outputs/ScanNet-default/2019-11-19_18-19-27/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/19 22:47:25 Current best mIoU: 20.656 at iter 600
+ubuntu 11/19 22:50:46 ===> Epoch[6](610/121): Loss 0.9897	LR: 9.954e-02	Score 69.998	Data time: 1.8636, Iter time: 19.5462
+ubuntu 11/19 22:53:53 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/19 22:54:17 ===> Epoch[6](620/121): Loss 1.0407	LR: 9.953e-02	Score 69.687	Data time: 1.9007, Iter time: 19.7300
+ubuntu 11/19 22:57:36 ===> Epoch[6](630/121): Loss 1.0963	LR: 9.953e-02	Score 67.406	Data time: 1.7802, Iter time: 18.6183
+ubuntu 11/19 23:00:54 ===> Epoch[6](640/121): Loss 1.0376	LR: 9.952e-02	Score 68.002	Data time: 1.6288, Iter time: 18.7753
+ubuntu 11/19 23:04:15 ===> Epoch[6](650/121): Loss 1.0374	LR: 9.951e-02	Score 69.137	Data time: 1.7348, Iter time: 19.2146
+ubuntu 11/19 23:05:20 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 23:07:31 ===> Epoch[6](660/121): Loss 0.9463	LR: 9.950e-02	Score 72.169	Data time: 1.6889, Iter time: 18.8846
+ubuntu 11/19 23:10:55 ===> Epoch[6](670/121): Loss 1.0264	LR: 9.950e-02	Score 69.339	Data time: 1.6349, Iter time: 19.1558
+ubuntu 11/19 23:14:14 ===> Epoch[6](680/121): Loss 0.9852	LR: 9.949e-02	Score 70.048	Data time: 1.6042, Iter time: 18.8267
+ubuntu 11/19 23:15:38 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 23:17:33 ===> Epoch[6](690/121): Loss 0.9404	LR: 9.948e-02	Score 71.619	Data time: 1.7038, Iter time: 18.9552
+ubuntu 11/19 23:20:53 ===> Epoch[6](700/121): Loss 0.9216	LR: 9.947e-02	Score 72.186	Data time: 1.7241, Iter time: 18.7332
+ubuntu 11/19 23:20:53 ===> Start testing
+ubuntu 11/19 23:25:02 101/312: Data time: 0.0056, Iter time: 1.5919	Loss 1.330 (AVG: 1.029)	Score 62.470 (AVG: 69.097)	mIOU 20.851 mAP 45.851 mAcc 30.477
+IOU: 67.251 93.786 26.107 18.605 53.550 5.119 41.540 0.042 16.373 30.243 0.000 13.707 4.331 35.320 0.000 0.000 0.073 0.009 3.545 7.418
+mAP: 70.696 96.391 37.823 56.287 78.296 58.361 57.248 27.164 32.809 58.871 8.683 38.585 23.776 63.137 8.517 58.648 43.651 29.028 49.482 19.559
+mAcc: 89.707 98.508 41.879 23.139 90.846 5.446 72.922 0.042 24.500 82.868 0.000 15.300 6.126 46.130 0.000 0.000 0.073 0.009 3.584 8.457
+
+ubuntu 11/19 23:29:50 201/312: Data time: 0.0027, Iter time: 1.8799	Loss 0.220 (AVG: 1.011)	Score 96.469 (AVG: 69.974)	mIOU 21.014 mAP 44.843 mAcc 30.317
+IOU: 66.345 94.040 25.295 17.561 59.280 4.584 44.262 0.098 17.135 32.080 0.000 12.519 4.432 30.970 0.000 0.000 0.272 0.006 3.400 8.009
+mAP: 69.918 96.854 34.316 50.024 80.160 55.003 58.979 27.608 33.259 61.977 8.413 35.491 30.260 59.270 7.953 56.464 45.828 24.291 41.894 18.890
+mAcc: 88.492 98.490 39.807 21.808 91.510 4.957 74.068 0.098 25.012 87.526 0.000 14.030 5.891 41.552 0.000 0.000 0.274 0.006 3.445 9.364
+
+ubuntu 11/19 23:34:09 301/312: Data time: 0.0029, Iter time: 2.0920	Loss 1.185 (AVG: 0.997)	Score 65.624 (AVG: 70.377)	mIOU 21.309 mAP 44.747 mAcc 30.321
+IOU: 66.527 94.177 25.974 16.991 60.884 4.528 44.518 0.081 19.284 36.039 0.000 10.122 4.620 31.660 0.000 0.000 0.230 0.006 3.108 7.439
+mAP: 69.086 96.693 35.638 49.939 79.407 54.428 60.984 27.419 33.147 61.385 9.286 34.417 33.097 58.033 8.127 55.080 46.037 25.070 39.392 18.274
+mAcc: 88.992 98.461 40.502 21.825 90.910 4.936 74.543 0.081 26.432 86.923 0.000 11.853 6.110 42.722 0.000 0.000 0.232 0.006 3.153 8.737
+
+ubuntu 11/19 23:34:39 312/312: Data time: 0.0021, Iter time: 1.3557	Loss 1.093 (AVG: 0.996)	Score 67.766 (AVG: 70.371)	mIOU 21.268 mAP 44.742 mAcc 30.269
+IOU: 66.582 94.163 26.306 17.145 60.548 4.493 44.223 0.077 19.133 36.481 0.000 10.153 4.619 30.738 0.000 0.000 0.227 0.006 3.025 7.451
+mAP: 69.305 96.727 36.244 49.931 78.691 54.248 60.875 27.459 33.476 62.068 9.173 34.475 32.380 57.540 8.038 55.741 45.765 25.217 39.265 18.216
+mAcc: 89.073 98.458 40.981 21.843 90.869 4.908 73.626 0.077 26.265 86.800 0.000 11.901 6.094 42.417 0.000 0.000 0.229 0.006 3.068 8.759
+
+ubuntu 11/19 23:34:39 Finished test. Elapsed time: 825.9288
+ubuntu 11/19 23:34:40 Checkpoint saved to ./outputs/ScanNet-default/2019-11-19_18-19-27/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/19 23:34:40 Current best mIoU: 21.268 at iter 700
+ubuntu 11/19 23:38:04 ===> Epoch[7](710/121): Loss 1.0488	LR: 9.947e-02	Score 69.338	Data time: 1.6879, Iter time: 19.4215
+ubuntu 11/19 23:41:28 ===> Epoch[7](720/121): Loss 0.9954	LR: 9.946e-02	Score 70.119	Data time: 1.6510, Iter time: 19.0070
+ubuntu 11/19 23:42:07 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 23:42:45 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/19 23:44:45 ===> Epoch[7](730/121): Loss 1.0347	LR: 9.945e-02	Score 68.846	Data time: 1.5716, Iter time: 18.6783
+ubuntu 11/19 23:47:26 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/19 23:48:07 ===> Epoch[7](740/121): Loss 0.9434	LR: 9.944e-02	Score 71.862	Data time: 1.5962, Iter time: 19.4368
+ubuntu 11/19 23:51:22 ===> Epoch[7](750/121): Loss 0.9591	LR: 9.944e-02	Score 71.347	Data time: 1.6314, Iter time: 18.4534
+ubuntu 11/19 23:54:44 ===> Epoch[7](760/121): Loss 0.9293	LR: 9.943e-02	Score 71.378	Data time: 1.7258, Iter time: 19.2099
+ubuntu 11/19 23:57:47 ===> Epoch[7](770/121): Loss 0.9679	LR: 9.942e-02	Score 69.895	Data time: 1.5316, Iter time: 17.1960
+ubuntu 11/20 00:01:00 ===> Epoch[7](780/121): Loss 0.9304	LR: 9.941e-02	Score 71.509	Data time: 1.8462, Iter time: 18.5060
+ubuntu 11/20 00:04:25 ===> Epoch[7](790/121): Loss 0.9811	LR: 9.941e-02	Score 70.277	Data time: 1.7028, Iter time: 19.7259
+ubuntu 11/20 00:07:47 ===> Epoch[7](800/121): Loss 0.9533	LR: 9.940e-02	Score 71.076	Data time: 1.6845, Iter time: 19.0686
+ubuntu 11/20 00:07:47 ===> Start testing
+ubuntu 11/20 00:12:10 101/312: Data time: 0.0046, Iter time: 1.7560	Loss 1.164 (AVG: 0.981)	Score 63.036 (AVG: 70.941)	mIOU 24.450 mAP 46.437 mAcc 33.845
+IOU: 66.203 93.818 30.552 26.879 66.364 36.678 42.886 3.118 19.425 44.729 0.000 8.965 1.294 27.532 0.000 0.000 0.815 0.083 11.365 8.288
+mAP: 71.833 96.570 42.020 58.247 78.313 59.647 60.173 28.118 37.325 64.987 11.112 37.139 41.306 64.334 11.265 40.776 48.022 16.706 39.127 21.719
+mAcc: 90.430 98.306 58.514 55.035 89.068 56.279 57.925 3.274 26.259 53.498 0.000 10.035 1.345 52.616 0.000 0.000 0.927 0.084 13.508 9.805
+
+ubuntu 11/20 00:16:36 201/312: Data time: 0.0021, Iter time: 2.2502	Loss 1.450 (AVG: 0.956)	Score 53.616 (AVG: 71.665)	mIOU 24.872 mAP 46.432 mAcc 34.031
+IOU: 67.329 93.901 30.819 31.306 64.692 40.460 44.835 3.071 17.606 41.522 0.000 8.982 1.519 30.315 0.000 0.000 1.881 0.072 9.518 9.623
+mAP: 71.266 96.766 40.241 60.905 78.011 64.768 58.540 27.389 33.594 58.148 9.365 33.220 40.248 62.468 11.461 53.643 50.739 22.285 35.491 20.097
+mAcc: 90.824 98.426 56.118 58.353 88.716 57.517 58.636 3.264 23.860 49.395 0.000 10.188 1.583 58.069 0.000 0.000 2.065 0.072 11.774 11.761
+
+ubuntu 11/20 00:20:50 301/312: Data time: 0.0019, Iter time: 1.0836	Loss 0.665 (AVG: 0.932)	Score 78.629 (AVG: 72.468)	mIOU 25.335 mAP 47.116 mAcc 34.476
+IOU: 67.462 94.388 31.088 31.764 64.296 40.108 46.753 2.936 15.887 49.549 0.000 8.286 1.570 30.147 0.000 0.000 1.538 0.063 10.959 9.906
+mAP: 71.804 96.963 41.234 61.233 77.044 65.962 60.404 28.259 31.651 58.211 10.032 33.433 39.357 58.962 12.143 58.452 50.668 24.529 40.866 21.109
+mAcc: 90.486 98.631 56.465 58.074 88.008 56.782 58.490 3.119 22.200 60.057 0.000 9.197 1.646 59.454 0.000 0.000 1.672 0.063 13.295 11.883
+
+ubuntu 11/20 00:21:17 312/312: Data time: 0.0024, Iter time: 1.2598	Loss 0.687 (AVG: 0.931)	Score 76.992 (AVG: 72.450)	mIOU 25.301 mAP 46.941 mAcc 34.409
+IOU: 67.479 94.395 31.009 31.834 64.073 39.941 46.564 2.883 15.684 49.517 0.000 8.167 1.581 30.771 0.000 0.000 1.467 0.074 10.659 9.915
+mAP: 71.760 96.892 41.091 60.643 77.127 66.124 59.877 28.348 31.378 55.836 10.174 33.059 38.321 60.385 11.910 59.102 50.410 25.448 40.033 20.892
+mAcc: 90.618 98.637 56.111 57.386 88.027 56.729 58.575 3.060 21.945 59.749 0.000 9.057 1.659 60.247 0.000 0.000 1.590 0.074 12.785 11.925
+
+ubuntu 11/20 00:21:17 Finished test. Elapsed time: 810.4364
+ubuntu 11/20 00:21:18 Checkpoint saved to ./outputs/ScanNet-default/2019-11-19_18-19-27/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/20 00:21:18 Current best mIoU: 25.301 at iter 800
+ubuntu 11/20 00:24:37 ===> Epoch[7](810/121): Loss 0.9500	LR: 9.939e-02	Score 71.325	Data time: 1.8902, Iter time: 18.8747
+ubuntu 11/20 00:27:51 ===> Epoch[7](820/121): Loss 0.9498	LR: 9.938e-02	Score 71.357	Data time: 1.9058, Iter time: 18.5363
+ubuntu 11/20 00:31:02 ===> Epoch[8](830/121): Loss 0.9163	LR: 9.938e-02	Score 72.319	Data time: 1.5545, Iter time: 18.5170
+ubuntu 11/20 00:34:26 ===> Epoch[8](840/121): Loss 0.9705	LR: 9.937e-02	Score 70.137	Data time: 1.8030, Iter time: 19.4491
+ubuntu 11/20 00:37:45 ===> Epoch[8](850/121): Loss 0.9053	LR: 9.936e-02	Score 72.809	Data time: 1.7623, Iter time: 18.6728
+ubuntu 11/20 00:40:57 ===> Epoch[8](860/121): Loss 0.8374	LR: 9.935e-02	Score 74.294	Data time: 1.6070, Iter time: 18.2212
+ubuntu 11/20 00:44:04 ===> Epoch[8](870/121): Loss 0.9570	LR: 9.935e-02	Score 70.266	Data time: 1.6611, Iter time: 17.7082
+ubuntu 11/20 00:47:14 ===> Epoch[8](880/121): Loss 0.8511	LR: 9.934e-02	Score 73.943	Data time: 1.6510, Iter time: 17.9264
+ubuntu 11/20 00:50:27 ===> Epoch[8](890/121): Loss 0.9320	LR: 9.933e-02	Score 71.207	Data time: 1.7551, Iter time: 18.5420
+ubuntu 11/20 00:53:34 ===> Epoch[8](900/121): Loss 0.9147	LR: 9.932e-02	Score 72.724	Data time: 1.7680, Iter time: 17.9645
+ubuntu 11/20 00:53:34 ===> Start testing
+ubuntu 11/20 00:57:55 101/312: Data time: 0.0026, Iter time: 1.1152	Loss 0.889 (AVG: 1.046)	Score 75.449 (AVG: 68.323)	mIOU 22.369 mAP 48.853 mAcc 32.805
+IOU: 63.786 94.034 26.864 20.902 54.887 23.993 36.300 0.732 18.474 42.318 0.000 8.496 0.237 30.035 0.000 0.000 1.256 0.183 14.057 10.834
+mAP: 72.366 91.319 39.963 51.377 75.401 67.874 51.671 29.530 32.222 65.171 16.422 31.406 36.424 65.093 22.466 57.063 40.513 33.576 72.380 24.821
+mAcc: 84.009 98.687 38.813 36.085 92.121 29.366 58.658 0.740 31.809 79.707 0.000 9.422 0.240 67.602 0.000 0.000 1.282 0.183 14.197 13.182
+
+ubuntu 11/20 01:02:22 201/312: Data time: 0.0047, Iter time: 1.7125	Loss 1.257 (AVG: 0.989)	Score 61.122 (AVG: 69.760)	mIOU 22.666 mAP 47.012 mAcc 32.927
+IOU: 65.728 94.270 27.257 24.476 55.832 29.398 38.865 0.853 20.693 38.515 0.000 9.130 0.222 23.513 0.000 0.000 1.445 0.131 11.107 11.889
+mAP: 72.517 92.709 39.004 56.344 75.150 66.908 56.095 28.876 32.972 58.641 14.766 30.037 34.865 51.329 19.483 57.418 39.720 29.788 61.737 21.886
+mAcc: 84.422 98.566 38.662 41.472 91.582 35.712 57.187 0.862 33.451 79.088 0.000 10.245 0.224 58.572 0.000 0.000 1.476 0.131 11.312 15.584
+
+ubuntu 11/20 01:06:55 301/312: Data time: 0.0024, Iter time: 1.2267	Loss 1.160 (AVG: 0.974)	Score 64.912 (AVG: 70.613)	mIOU 23.266 mAP 46.854 mAcc 33.175
+IOU: 66.477 94.074 27.749 24.584 57.413 29.866 43.153 0.732 19.345 43.137 0.000 9.326 0.219 24.474 0.000 0.000 1.435 0.107 10.670 12.553
+mAP: 72.056 92.665 38.093 55.116 75.806 66.285 60.205 28.119 31.143 57.513 14.363 32.201 34.629 50.883 20.204 54.090 41.430 28.377 60.427 23.474
+mAcc: 85.371 98.352 38.987 41.260 92.074 36.252 61.689 0.740 30.508 82.209 0.000 10.543 0.221 56.373 0.000 0.000 1.473 0.107 10.924 16.425
+
+ubuntu 11/20 01:07:24 312/312: Data time: 0.0046, Iter time: 2.1650	Loss 0.206 (AVG: 0.977)	Score 94.869 (AVG: 70.531)	mIOU 23.175 mAP 46.616 mAcc 33.123
+IOU: 66.474 94.096 27.442 24.355 57.687 29.850 43.055 0.754 19.277 42.864 0.000 9.215 0.216 23.705 0.000 0.000 1.383 0.104 10.547 12.472
+mAP: 72.121 92.623 37.750 55.116 75.385 65.849 60.132 27.886 31.389 57.574 14.116 32.010 35.143 50.098 19.797 54.720 40.826 27.681 58.639 23.464
+mAcc: 85.271 98.376 38.584 41.260 92.187 36.323 61.864 0.761 30.196 82.459 0.000 10.431 0.218 55.767 0.000 0.000 1.419 0.104 10.827 16.419
+
+ubuntu 11/20 01:07:24 Finished test. Elapsed time: 829.3344
+ubuntu 11/20 01:07:24 Current best mIoU: 25.301 at iter 800
+ubuntu 11/20 01:10:37 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/20 01:10:54 ===> Epoch[8](910/121): Loss 0.9362	LR: 9.932e-02	Score 71.016	Data time: 1.6512, Iter time: 20.0809
+ubuntu 11/20 01:14:06 ===> Epoch[8](920/121): Loss 0.8954	LR: 9.931e-02	Score 72.915	Data time: 1.8546, Iter time: 18.7437
+ubuntu 11/20 01:15:26 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 01:17:30 ===> Epoch[8](930/121): Loss 0.9046	LR: 9.930e-02	Score 72.614	Data time: 1.7688, Iter time: 19.2572
+ubuntu 11/20 01:19:48 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 01:20:41 ===> Epoch[8](940/121): Loss 0.9424	LR: 9.929e-02	Score 71.652	Data time: 1.5972, Iter time: 17.8962
+ubuntu 11/20 01:24:11 ===> Epoch[9](950/121): Loss 0.9016	LR: 9.929e-02	Score 71.785	Data time: 1.9343, Iter time: 20.1270
+ubuntu 11/20 01:25:20 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/20 01:27:17 ===> Epoch[9](960/121): Loss 0.8453	LR: 9.928e-02	Score 74.584	Data time: 1.7265, Iter time: 17.7427
+ubuntu 11/20 01:30:30 ===> Epoch[9](970/121): Loss 0.8534	LR: 9.927e-02	Score 74.009	Data time: 1.6027, Iter time: 18.6121
+ubuntu 11/20 01:33:55 ===> Epoch[9](980/121): Loss 0.8939	LR: 9.926e-02	Score 72.504	Data time: 1.9761, Iter time: 19.6474
+ubuntu 11/20 01:37:20 ===> Epoch[9](990/121): Loss 0.8893	LR: 9.926e-02	Score 73.002	Data time: 1.8045, Iter time: 19.7778
+ubuntu 11/20 01:40:42 ===> Epoch[9](1000/121): Loss 0.8986	LR: 9.925e-02	Score 71.958	Data time: 1.9566, Iter time: 19.6411
+ubuntu 11/20 01:40:43 Checkpoint saved to ./outputs/ScanNet-default/2019-11-19_18-19-27/checkpoint_NoneRes16UNet34C.pth
+ubuntu 11/20 01:40:43 ===> Start testing
+ubuntu 11/20 01:45:13 101/312: Data time: 0.0017, Iter time: 1.0687	Loss 0.536 (AVG: 0.907)	Score 88.536 (AVG: 73.011)	mIOU 30.241 mAP 50.473 mAcc 41.196
+IOU: 67.214 94.798 27.830 38.351 66.331 52.377 46.745 11.180 31.101 41.028 0.000 16.371 12.317 45.642 0.000 0.000 21.080 2.209 18.984 11.258
+mAP: 71.290 95.946 45.138 61.400 77.784 64.115 59.869 28.866 37.950 46.949 8.893 43.738 41.552 65.834 20.318 72.408 69.292 29.941 44.403 23.774
+mAcc: 88.378 97.621 55.318 53.410 76.590 84.400 57.097 14.183 48.748 59.870 0.000 25.214 13.536 69.807 0.000 0.000 33.032 2.434 29.397 14.894
+
+ubuntu 11/20 01:49:49 201/312: Data time: 0.0046, Iter time: 3.0010	Loss 1.000 (AVG: 0.901)	Score 67.182 (AVG: 72.827)	mIOU 30.603 mAP 51.165 mAcc 41.578
+IOU: 67.619 94.668 26.931 37.693 66.136 51.446 46.458 13.868 28.225 38.758 0.000 16.460 11.402 42.800 0.000 0.000 28.066 3.546 26.584 11.393
+mAP: 70.892 95.943 43.970 61.098 78.245 65.806 60.369 31.839 38.746 49.422 11.162 41.418 44.789 65.946 15.401 68.255 71.834 35.177 49.095 23.886
+mAcc: 88.216 97.717 54.457 52.904 77.115 80.632 57.345 17.632 45.058 53.316 0.000 25.227 12.460 69.680 0.000 0.000 42.379 3.840 38.141 15.441
+
+ubuntu 11/20 01:54:15 301/312: Data time: 0.0512, Iter time: 0.9320	Loss 0.222 (AVG: 0.876)	Score 93.734 (AVG: 73.436)	mIOU 31.192 mAP 51.494 mAcc 42.329
+IOU: 67.767 94.809 29.150 38.195 66.928 49.853 49.789 15.019 27.817 50.075 0.000 15.573 11.392 37.283 0.000 0.000 28.143 3.201 26.024 12.816
+mAP: 71.067 96.420 44.440 61.001 78.277 67.767 61.904 32.696 38.072 54.299 11.730 38.282 44.821 66.528 18.587 64.106 71.171 34.032 49.041 25.649
+mAcc: 87.891 97.816 57.549 53.826 77.220 79.810 59.460 19.133 45.078 65.318 0.000 24.575 12.615 65.874 0.000 0.000 41.634 3.429 38.332 17.014
+
+ubuntu 11/20 01:54:47 312/312: Data time: 0.0041, Iter time: 0.8608	Loss 0.956 (AVG: 0.875)	Score 70.019 (AVG: 73.468)	mIOU 31.068 mAP 51.298 mAcc 42.202
+IOU: 67.562 94.850 29.041 37.525 67.460 49.922 50.811 14.890 27.737 48.585 0.000 15.735 11.307 36.078 0.000 0.000 27.938 3.150 25.682 13.077
+mAP: 71.029 96.382 44.631 60.174 77.863 68.043 61.945 32.926 37.953 53.294 11.575 38.816 44.773 65.396 19.017 64.106 71.135 33.438 48.062 25.406
+mAcc: 87.522 97.844 57.403 53.221 77.640 79.320 60.141 19.139 45.147 65.086 0.000 24.222 12.605 64.212 0.000 0.000 41.610 3.371 38.122 17.440
+
+ubuntu 11/20 01:54:47 Finished test. Elapsed time: 843.7280
+ubuntu 11/20 01:54:48 Checkpoint saved to ./outputs/ScanNet-default/2019-11-19_18-19-27/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/20 01:54:48 Current best mIoU: 31.068 at iter 1000
+ubuntu 11/20 01:58:12 ===> Epoch[9](1010/121): Loss 0.8550	LR: 9.924e-02	Score 73.866	Data time: 1.8001, Iter time: 19.5704
+ubuntu 11/20 02:01:23 ===> Epoch[9](1020/121): Loss 0.8330	LR: 9.923e-02	Score 74.801	Data time: 1.5788, Iter time: 17.9796
+ubuntu 11/20 02:04:42 ===> Epoch[9](1030/121): Loss 0.8669	LR: 9.923e-02	Score 73.193	Data time: 1.7934, Iter time: 18.7434
+ubuntu 11/20 02:06:44 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 02:08:05 ===> Epoch[9](1040/121): Loss 0.8940	LR: 9.922e-02	Score 71.699	Data time: 1.9401, Iter time: 19.7402
+ubuntu 11/20 02:11:04 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 02:11:19 ===> Epoch[9](1050/121): Loss 0.8581	LR: 9.921e-02	Score 74.087	Data time: 1.7388, Iter time: 18.3199
+ubuntu 11/20 02:14:16 ===> Epoch[9](1060/121): Loss 0.9548	LR: 9.920e-02	Score 70.894	Data time: 1.7039, Iter time: 16.7612
+ubuntu 11/20 02:15:07 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/20 02:17:27 ===> Epoch[10](1070/121): Loss 0.8145	LR: 9.920e-02	Score 74.482	Data time: 1.8866, Iter time: 18.3636
+ubuntu 11/20 02:20:46 ===> Epoch[10](1080/121): Loss 0.8266	LR: 9.919e-02	Score 74.750	Data time: 1.9127, Iter time: 19.3983
+ubuntu 11/20 02:24:12 ===> Epoch[10](1090/121): Loss 0.8045	LR: 9.918e-02	Score 75.252	Data time: 1.9228, Iter time: 19.6343
+ubuntu 11/20 02:27:47 ===> Epoch[10](1100/121): Loss 0.9380	LR: 9.917e-02	Score 70.961	Data time: 2.0013, Iter time: 20.4220
+ubuntu 11/20 02:27:47 ===> Start testing
+ubuntu 11/20 02:32:10 101/312: Data time: 0.0043, Iter time: 1.1380	Loss 1.567 (AVG: 0.884)	Score 44.905 (AVG: 71.455)	mIOU 24.528 mAP 52.161 mAcc 34.042
+IOU: 67.898 94.512 25.616 26.457 63.738 34.956 47.669 3.240 27.186 3.314 0.000 17.779 10.119 5.600 0.000 0.000 20.710 2.339 25.642 13.787
+mAP: 69.458 93.082 43.728 53.605 76.525 65.129 58.927 31.131 43.371 66.966 14.696 44.381 51.478 59.012 36.508 65.558 63.589 30.254 52.437 23.381
+mAcc: 93.012 98.331 54.623 36.761 72.297 84.891 77.705 3.636 37.673 3.316 0.000 24.226 11.710 5.859 0.000 0.000 23.015 2.454 29.391 21.936
+
+ubuntu 11/20 02:36:01 201/312: Data time: 0.0018, Iter time: 1.2871	Loss 0.866 (AVG: 0.916)	Score 66.323 (AVG: 71.306)	mIOU 25.353 mAP 52.659 mAcc 34.798
+IOU: 68.152 94.848 27.439 24.852 65.038 42.789 43.102 3.063 26.412 2.555 0.000 23.374 10.777 10.520 0.000 0.031 21.243 1.883 27.690 13.295
+mAP: 72.057 94.435 43.023 54.759 76.969 68.717 60.340 33.918 41.979 60.005 17.645 48.819 45.818 56.146 31.373 67.508 70.541 33.201 50.622 25.306
+mAcc: 93.326 98.387 58.367 35.861 74.062 86.355 78.104 3.456 35.095 2.557 0.000 30.025 13.091 11.105 0.000 0.031 22.986 1.956 32.414 18.791
+
+ubuntu 11/20 02:39:59 301/312: Data time: 0.0042, Iter time: 2.6473	Loss 1.162 (AVG: 0.897)	Score 70.092 (AVG: 71.766)	mIOU 25.914 mAP 52.549 mAcc 35.146
+IOU: 67.999 94.731 29.271 23.006 65.793 46.085 43.492 2.881 25.792 2.409 0.000 24.786 10.445 12.801 0.000 0.023 22.107 2.444 30.241 13.974
+mAP: 72.539 94.597 41.040 53.884 77.757 70.105 60.891 33.931 41.287 57.183 17.241 44.387 44.360 58.597 28.647 68.112 71.469 35.280 53.010 26.659
+mAcc: 92.873 98.100 58.264 33.402 75.462 87.042 77.540 3.191 34.383 2.412 0.000 32.230 12.799 13.745 0.000 0.023 23.508 2.516 35.867 19.555
+
+ubuntu 11/20 02:40:21 312/312: Data time: 0.0022, Iter time: 1.1643	Loss 1.170 (AVG: 0.894)	Score 58.548 (AVG: 71.866)	mIOU 26.100 mAP 52.715 mAcc 35.256
+IOU: 67.941 94.702 29.603 23.078 66.251 47.923 43.862 2.894 25.432 2.524 0.000 24.883 10.478 13.053 0.000 0.023 21.724 2.615 30.925 14.090
+mAP: 72.657 94.593 41.424 53.905 78.104 71.030 60.891 34.269 40.978 57.672 17.926 43.917 44.214 60.205 28.045 68.611 71.023 35.305 53.178 26.356
+mAcc: 92.944 98.110 58.280 33.574 75.887 87.791 77.540 3.199 33.871 2.527 0.000 32.214 12.787 14.003 0.000 0.023 23.284 2.691 36.580 19.817
+
+ubuntu 11/20 02:40:21 Finished test. Elapsed time: 754.2567
+ubuntu 11/20 02:40:21 Current best mIoU: 31.068 at iter 1000
+ubuntu 11/20 02:42:35 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 02:43:41 ===> Epoch[10](1110/121): Loss 0.8342	LR: 9.917e-02	Score 74.615	Data time: 2.0129, Iter time: 18.9157
+ubuntu 11/20 02:45:00 Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 02:46:52 ===> Epoch[10](1120/121): Loss 0.7868	LR: 9.916e-02	Score 75.743	Data time: 1.8653, Iter time: 18.2023
+ubuntu 11/20 02:50:12 ===> Epoch[10](1130/121): Loss 0.7121	LR: 9.915e-02	Score 77.927	Data time: 1.7288, Iter time: 19.2105
+ubuntu 11/20 02:53:09 ===> Epoch[10](1140/121): Loss 0.8168	LR: 9.914e-02	Score 75.141	Data time: 1.5648, Iter time: 17.0198
+ubuntu 11/20 02:56:23 ===> Epoch[10](1150/121): Loss 0.8648	LR: 9.914e-02	Score 72.981	Data time: 1.6161, Iter time: 18.2731
+ubuntu 11/20 02:59:55 ===> Epoch[10](1160/121): Loss 0.8822	LR: 9.913e-02	Score 71.941	Data time: 1.9081, Iter time: 20.3868
+ubuntu 11/20 03:03:22 ===> Epoch[10](1170/121): Loss 0.8497	LR: 9.912e-02	Score 73.903	Data time: 2.0417, Iter time: 19.7801
+^C^C^C^C
+(mk) root@ubuntu:~/pyy/SpatioTemporalSegmentation# /root/pyy/SpatioTemporalSegmentation/outputs/ScanNet-default/2019-11-19_18-19-27[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K./scripts/train_scannet.sh 2 -default "--scannet_path /root/pyy/ScanNet_data/scans_processed/train --conv1_kernel_size 5" [1@ [1@-[1@-[1@t[1@h[1@r[1@e[1@a[1@d[1@ [1@1[1@0 "  [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C-"  [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C-" [1@w[1@e[1@i[1@g[1@h[1@t[1@s[1@ [80@/root/pyy/SpatioTemporalSegmentation/outputs/ScanNet-default/2019-11-19_18-19-27[1@/[1@w[1@e[1@i[1@g[1@t[1P[1@h[1@t[1@s[1@.[1@p[1@t[1@h[C
++ set -e
++ set -o pipefail
++ export PYTHONUNBUFFERED=True
++ PYTHONUNBUFFERED=True
++ export CUDA_VISIBLE_DEVICES=2
++ CUDA_VISIBLE_DEVICES=2
++ export BATCH_SIZE=10
++ BATCH_SIZE=10
+++ date +%Y-%m-%d_%H-%M-%S
++ export TIME=2019-11-20_03-06-35
++ TIME=2019-11-20_03-06-35
++ export LOG_DIR=./outputs/ScanNet-default/2019-11-20_03-06-35
++ LOG_DIR=./outputs/ScanNet-default/2019-11-20_03-06-35
++ mkdir -p ./outputs/ScanNet-default/2019-11-20_03-06-35
++ LOG=./outputs/ScanNet-default/2019-11-20_03-06-35/2019-11-20_03-06-35.txt
++ python main.py --log_dir ./outputs/ScanNet-default/2019-11-20_03-06-35 --dataset ScannetVoxelization2cmDataset --model Res16UNet34C --lr 1e-1 --batch_size 10 --scheduler PolyLR --max_iter 120000 --train_limit_numpoints 10000000 --train_phase train --scannet_path /root/pyy/ScanNet_data/scans_processed/train --conv1_kernel_size 5 --thread 10 --weights /root/pyy/SpatioTemporalSegmentation/outputs/ScanNet-default/2019-11-19_18-19-27/weights.pth
++ tee -a ./outputs/ScanNet-default/2019-11-20_03-06-35/2019-11-20_03-06-35.txt
+ubuntu 11/20 03:06:41 ===> Configurations
+ubuntu 11/20 03:06:41     model: Res16UNet34C
+ubuntu 11/20 03:06:41     conv1_kernel_size: 5
+ubuntu 11/20 03:06:41     weights: /root/pyy/SpatioTemporalSegmentation/outputs/ScanNet-default/2019-11-19_18-19-27/weights.pth
+ubuntu 11/20 03:06:41     weights_for_inner_model: False
+ubuntu 11/20 03:06:41     dilations: [1, 1, 1, 1]
+ubuntu 11/20 03:06:41     wrapper_type: None
+ubuntu 11/20 03:06:41     wrapper_region_type: 1
+ubuntu 11/20 03:06:41     wrapper_kernel_size: 3
+ubuntu 11/20 03:06:41     wrapper_lr: 0.1
+ubuntu 11/20 03:06:41     meanfield_iterations: 10
+ubuntu 11/20 03:06:41     crf_spatial_sigma: 1
+ubuntu 11/20 03:06:41     crf_chromatic_sigma: 12
+ubuntu 11/20 03:06:41     optimizer: SGD
+ubuntu 11/20 03:06:41     lr: 0.1
+ubuntu 11/20 03:06:41     sgd_momentum: 0.9
+ubuntu 11/20 03:06:41     sgd_dampening: 0.1
+ubuntu 11/20 03:06:41     adam_beta1: 0.9
+ubuntu 11/20 03:06:41     adam_beta2: 0.999
+ubuntu 11/20 03:06:41     weight_decay: 0.0001
+ubuntu 11/20 03:06:41     param_histogram_freq: 100
+ubuntu 11/20 03:06:41     save_param_histogram: False
+ubuntu 11/20 03:06:41     iter_size: 1
+ubuntu 11/20 03:06:41     bn_momentum: 0.02
+ubuntu 11/20 03:06:41     scheduler: PolyLR
+ubuntu 11/20 03:06:41     max_iter: 120000
+ubuntu 11/20 03:06:41     step_size: 20000.0
+ubuntu 11/20 03:06:41     step_gamma: 0.1
+ubuntu 11/20 03:06:41     poly_power: 0.9
+ubuntu 11/20 03:06:41     exp_gamma: 0.95
+ubuntu 11/20 03:06:41     exp_step_size: 445
+ubuntu 11/20 03:06:41     log_dir: ./outputs/ScanNet-default/2019-11-20_03-06-35
+ubuntu 11/20 03:06:41     data_dir: data
+ubuntu 11/20 03:06:41     dataset: ScannetVoxelization2cmDataset
+ubuntu 11/20 03:06:41     temporal_dilation: 30
+ubuntu 11/20 03:06:41     temporal_numseq: 3
+ubuntu 11/20 03:06:41     point_lim: -1
+ubuntu 11/20 03:06:41     pre_point_lim: -1
+ubuntu 11/20 03:06:41     batch_size: 10
+ubuntu 11/20 03:06:41     val_batch_size: 1
+ubuntu 11/20 03:06:41     test_batch_size: 1
+ubuntu 11/20 03:06:41     cache_data: False
+ubuntu 11/20 03:06:41     threads: 10
+ubuntu 11/20 03:06:41     val_threads: 1
+ubuntu 11/20 03:06:41     ignore_label: 255
+ubuntu 11/20 03:06:41     return_transformation: False
+ubuntu 11/20 03:06:41     ignore_duplicate_class: False
+ubuntu 11/20 03:06:41     partial_crop: 0.0
+ubuntu 11/20 03:06:41     train_limit_numpoints: 10000000
+ubuntu 11/20 03:06:41     synthia_path: /home/chrischoy/datasets/Synthia/Synthia4D
+ubuntu 11/20 03:06:41     synthia_camera_path: /home/chrischoy/datasets/Synthia/%s/CameraParams/
+ubuntu 11/20 03:06:41     synthia_camera_intrinsic_file: intrinsics.txt
+ubuntu 11/20 03:06:41     synthia_camera_extrinsics_file: Stereo_Right/Omni_F/%s.txt
+ubuntu 11/20 03:06:41     temporal_rand_dilation: False
+ubuntu 11/20 03:06:41     temporal_rand_numseq: False
+ubuntu 11/20 03:06:41     scannet_path: /root/pyy/ScanNet_data/scans_processed/train
+ubuntu 11/20 03:06:41     stanford3d_online_path: /home/chrischoy/datasets/stanford_preprocessed
+ubuntu 11/20 03:06:41     is_train: True
+ubuntu 11/20 03:06:41     stat_freq: 10
+ubuntu 11/20 03:06:41     test_stat_freq: 100
+ubuntu 11/20 03:06:41     save_freq: 1000
+ubuntu 11/20 03:06:41     val_freq: 100
+ubuntu 11/20 03:06:41     empty_cache_freq: 1
+ubuntu 11/20 03:06:41     train_phase: train
+ubuntu 11/20 03:06:41     val_phase: val
+ubuntu 11/20 03:06:41     overwrite_weights: True
+ubuntu 11/20 03:06:41     resume: None
+ubuntu 11/20 03:06:41     resume_optimizer: True
+ubuntu 11/20 03:06:41     eval_upsample: False
+ubuntu 11/20 03:06:41     lenient_weight_loading: False
+ubuntu 11/20 03:06:41     use_feat_aug: True
+ubuntu 11/20 03:06:41     data_aug_color_trans_ratio: 0.1
+ubuntu 11/20 03:06:41     data_aug_color_jitter_std: 0.05
+ubuntu 11/20 03:06:41     data_aug_height_trans_std: 1
+ubuntu 11/20 03:06:41     data_aug_height_jitter_std: 0.1
+ubuntu 11/20 03:06:41     data_aug_normal_jitter_std: 0.01
+ubuntu 11/20 03:06:41     normalize_color: True
+ubuntu 11/20 03:06:41     data_aug_scale_min: 0.9
+ubuntu 11/20 03:06:41     data_aug_scale_max: 1.1
+ubuntu 11/20 03:06:41     data_aug_hue_max: 0.5
+ubuntu 11/20 03:06:41     data_aug_saturation_max: 0.2
+ubuntu 11/20 03:06:41     visualize: False
+ubuntu 11/20 03:06:41     test_temporal_average: False
+ubuntu 11/20 03:06:41     visualize_path: outputs/visualize
+ubuntu 11/20 03:06:41     save_prediction: False
+ubuntu 11/20 03:06:41     save_pred_dir: outputs/pred
+ubuntu 11/20 03:06:41     test_phase: test
+ubuntu 11/20 03:06:41     evaluate_original_pointcloud: False
+ubuntu 11/20 03:06:41     test_original_pointcloud: False
+ubuntu 11/20 03:06:41     is_cuda: True
+ubuntu 11/20 03:06:41     load_path: 
+ubuntu 11/20 03:06:41     log_step: 50
+ubuntu 11/20 03:06:41     log_level: INFO
+ubuntu 11/20 03:06:41     num_gpu: 1
+ubuntu 11/20 03:06:41     seed: 123
+ubuntu 11/20 03:06:41 ===> Initializing dataloader
+ubuntu 11/20 03:06:41 Loading ScannetVoxelization2cmDataset: scannetv2_train.txt
+ubuntu 11/20 03:06:41 Loading ScannetVoxelization2cmDataset: scannetv2_val.txt
+ubuntu 11/20 03:06:41 ===> Building model
+ubuntu 11/20 03:06:41 ===> Number of trainable parameters: Res16UNet34C: 37856052
+ubuntu 11/20 03:06:41 Res16UNet34C(
+  (conv0p1s1): MinkowskiConvolution(in=3, out=32, region_type=RegionType.HYPERCUBE, kernel_size=[5, 5, 5], stride=[1, 1, 1], dilation=[1, 1, 1])
+  (bn0): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (conv1p1s2): MinkowskiConvolution(in=32, out=32, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block1): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=32, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=32, out=32, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=32, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=32, out=32, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (conv2p2s2): MinkowskiConvolution(in=32, out=32, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn2): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block2): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=32, out=64, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=64, out=64, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=32, out=64, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=64, out=64, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=64, out=64, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (2): BasicBlock(
+      (conv1): MinkowskiConvolution(in=64, out=64, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=64, out=64, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (conv3p4s2): MinkowskiConvolution(in=64, out=64, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn3): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block3): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=64, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=64, out=128, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (2): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (3): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (conv4p8s2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bn4): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block4): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=128, out=256, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (2): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (3): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (4): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+    (5): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (convtr4p16s2): MinkowskiConvolutionTranspose(in=256, out=256, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr4): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block5): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=384, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=384, out=256, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=256, out=256, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (convtr5p8s2): MinkowskiConvolutionTranspose(in=256, out=128, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr5): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block6): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=192, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=192, out=128, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=128, out=128, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (convtr6p4s2): MinkowskiConvolutionTranspose(in=128, out=96, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr6): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block7): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=96, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=128, out=96, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=96, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=96, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (convtr7p2s2): MinkowskiConvolutionTranspose(in=96, out=96, region_type=RegionType.HYPERCUBE, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+  (bntr7): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+  (block8): Sequential(
+    (0): BasicBlock(
+      (conv1): MinkowskiConvolution(in=128, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=96, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=128, out=96, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.02, affine=True, track_running_stats=True)
+      )
+    )
+    (1): BasicBlock(
+      (conv1): MinkowskiConvolution(in=96, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (conv2): MinkowskiConvolution(in=96, out=96, region_type=RegionType.HYBRID, kernel_volume=27, stride=[1, 1, 1], dilation=[1, 1, 1])
+      (norm2): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): MinkowskiReLU()
+    )
+  )
+  (final): MinkowskiConvolution(in=96, out=20, region_type=RegionType.HYPERCUBE, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+  (relu): MinkowskiReLU()
+)
+^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B                                                                        ubuntu 11/20 03:07:10 ===> Loading weights: /root/pyy/SpatioTemporalSegmentation/outputs/ScanNet-default/2019-11-19_18-19-27/weights.pth
+ubuntu 11/20 03:07:11 ===> Start training
+ubuntu 11/20 03:07:39 ===> Epoch[1](1/121): Loss 0.9259	LR: 1.000e-01	Score 68.765	Data time: 6.6479, Iter time: 27.1726
+^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B                                                ^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A                                                ubuntu 11/20 03:10:36 ===> Epoch[1](10/121): Loss 0.7907	LR: 9.999e-02	Score 75.849	Data time: 1.5678, Iter time: 19.2730
+ubuntu 11/20 03:12:55 Caught KeyError in DataLoader worker process 8.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 03:13:32 ===> Epoch[1](20/121): Loss 0.8835	LR: 9.998e-02	Score 72.698	Data time: 1.6117, Iter time: 16.6417
+:q
+ubuntu 11/20 03:16:36 ===> Epoch[1](30/121): Loss 0.8358	LR: 9.998e-02	Score 74.361	Data time: 1.5729, Iter time: 17.1966
+ubuntu 11/20 03:19:11 ===> Epoch[1](40/121): Loss 0.8781	LR: 9.997e-02	Score 73.284	Data time: 1.2980, Iter time: 14.6661
+ubuntu 11/20 03:19:11 Caught KeyError in DataLoader worker process 1.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 03:22:16 ===> Epoch[1](50/121): Loss 0.8538	LR: 9.996e-02	Score 73.610	Data time: 1.4099, Iter time: 17.5949
+ubuntu 11/20 03:25:21 ===> Epoch[1](60/121): Loss 0.8872	LR: 9.995e-02	Score 73.214	Data time: 1.4735, Iter time: 17.7230
+ubuntu 11/20 03:28:14 ===> Epoch[1](70/121): Loss 0.8699	LR: 9.995e-02	Score 73.701	Data time: 1.4018, Iter time: 15.8190
+ubuntu 11/20 03:29:35 Caught KeyError in DataLoader worker process 7.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/20 03:30:56 ===> Epoch[1](80/121): Loss 0.8392	LR: 9.994e-02	Score 74.623	Data time: 1.2863, Iter time: 15.2668
+ubuntu 11/20 03:33:42 ===> Epoch[1](90/121): Loss 0.8622	LR: 9.993e-02	Score 72.906	Data time: 1.3842, Iter time: 15.8029
+ubuntu 11/20 03:36:19 ===> Epoch[1](100/121): Loss 0.8054	LR: 9.992e-02	Score 75.956	Data time: 1.3146, Iter time: 14.4562
+ubuntu 11/20 03:36:19 ===> Start testing
+ubuntu 11/20 03:39:47 101/312: Data time: 0.0019, Iter time: 1.0745	Loss 0.156 (AVG: 0.967)	Score 98.212 (AVG: 70.777)	mIOU 25.134 mAP 48.818 mAcc 35.066
+IOU: 68.612 94.321 25.525 13.513 60.995 34.119 33.349 10.903 26.547 39.033 0.000 9.185 5.764 27.339 0.000 0.198 9.082 2.512 26.960 14.719
+mAP: 70.167 95.483 40.092 45.930 74.721 64.066 60.191 39.968 30.920 58.658 13.026 36.863 23.793 76.277 12.174 80.023 47.339 27.184 56.880 22.599
+mAcc: 91.007 98.345 31.021 14.439 77.651 38.278 84.234 12.537 38.578 42.962 0.000 10.318 9.311 79.302 0.000 0.199 12.194 2.781 36.115 22.042
+
+ubuntu 11/20 03:43:26 201/312: Data time: 0.0018, Iter time: 1.8008	Loss 1.476 (AVG: 0.912)	Score 54.526 (AVG: 72.112)	mIOU 27.022 mAP 48.864 mAcc 36.266
+IOU: 68.742 94.638 30.645 17.647 63.931 36.512 38.108 9.582 24.048 46.772 0.000 14.075 6.533 29.477 0.000 0.259 9.502 2.854 32.000 15.117
+mAP: 72.781 95.361 42.998 50.013 76.249 64.994 56.728 37.649 31.960 60.581 16.302 37.604 28.848 63.818 11.294 70.068 42.550 26.615 66.595 24.265
+mAcc: 90.971 98.607 36.760 18.805 78.570 41.239 82.087 11.036 36.534 54.210 0.000 15.814 10.900 70.643 0.000 0.264 12.280 3.177 41.207 22.215
+
+ubuntu 11/20 03:47:19 301/312: Data time: 0.0026, Iter time: 2.2010	Loss 0.730 (AVG: 0.917)	Score 76.795 (AVG: 72.128)	mIOU 27.426 mAP 48.686 mAcc 36.492
+IOU: 68.320 94.501 30.958 19.171 63.895 36.948 38.782 10.063 25.036 44.856 0.000 15.944 6.126 33.787 0.000 0.288 10.063 3.799 30.854 15.131
+mAP: 72.684 94.963 45.965 48.997 75.247 64.243 57.708 35.161 34.194 57.392 16.384 39.476 27.716 66.438 11.069 66.392 41.080 27.783 65.909 24.929
+mAcc: 90.589 98.578 37.243 20.270 78.178 41.961 82.602 11.729 38.875 49.809 0.000 18.119 10.318 72.454 0.000 0.293 12.786 4.301 39.295 22.441
+
+ubuntu 11/20 03:47:45 312/312: Data time: 0.0025, Iter time: 1.0862	Loss 1.787 (AVG: 0.911)	Score 59.053 (AVG: 72.377)	mIOU 27.724 mAP 48.737 mAcc 36.785
+IOU: 68.518 94.427 30.643 19.055 64.105 36.733 39.194 10.028 25.727 48.886 0.000 15.925 6.140 35.029 0.000 0.287 9.874 3.804 30.573 15.536
+mAP: 72.973 94.909 46.222 49.242 75.344 64.230 57.549 35.107 34.147 57.549 16.167 39.476 27.896 67.056 11.069 66.392 40.811 27.922 65.689 24.985
+mAcc: 90.612 98.582 37.045 20.130 78.255 41.865 82.389 11.704 39.952 54.190 0.000 18.119 10.306 73.445 0.000 0.293 12.701 4.316 38.856 22.936
+
+ubuntu 11/20 03:47:45 Finished test. Elapsed time: 686.2079
+ubuntu 11/20 03:47:46 Checkpoint saved to ./outputs/ScanNet-default/2019-11-20_03-06-35/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/20 03:47:46 Current best mIoU: 27.724 at iter 100
+ubuntu 11/20 03:50:26 ===> Epoch[1](110/121): Loss 0.8256	LR: 9.992e-02	Score 74.238	Data time: 1.3840, Iter time: 15.4525
+ubuntu 11/20 03:53:26 ===> Epoch[2](120/121): Loss 0.8411	LR: 9.991e-02	Score 74.506	Data time: 1.5847, Iter time: 17.2327
+ubuntu 11/20 03:56:19 ===> Epoch[2](130/121): Loss 0.8378	LR: 9.990e-02	Score 74.686	Data time: 1.4180, Iter time: 16.4129
+ubuntu 11/20 03:59:01 ===> Epoch[2](140/121): Loss 0.8005	LR: 9.989e-02	Score 75.843	Data time: 1.5364, Iter time: 15.1496
+ubuntu 11/20 04:01:55 Caught KeyError in DataLoader worker process 2.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/20 04:02:07 ===> Epoch[2](150/121): Loss 0.7981	LR: 9.989e-02	Score 75.043	Data time: 1.6157, Iter time: 17.5559
+ubuntu 11/20 04:02:22 Caught KeyError in DataLoader worker process 5.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 04:05:00 ===> Epoch[2](160/121): Loss 0.8167	LR: 9.988e-02	Score 74.706	Data time: 1.5597, Iter time: 16.4054
+ubuntu 11/20 04:07:36 ===> Epoch[2](170/121): Loss 0.8027	LR: 9.987e-02	Score 75.690	Data time: 1.3645, Iter time: 14.9793
+ubuntu 11/20 04:10:31 ===> Epoch[2](180/121): Loss 0.8341	LR: 9.986e-02	Score 74.035	Data time: 1.5761, Iter time: 16.8259
+ubuntu 11/20 04:13:30 ===> Epoch[2](190/121): Loss 0.8464	LR: 9.986e-02	Score 74.321	Data time: 1.5256, Iter time: 16.8636
+ubuntu 11/20 04:16:25 ===> Epoch[2](200/121): Loss 0.8242	LR: 9.985e-02	Score 73.603	Data time: 1.5459, Iter time: 16.6140
+ubuntu 11/20 04:16:25 ===> Start testing
+ubuntu 11/20 04:20:08 101/312: Data time: 0.0021, Iter time: 1.9338	Loss 1.040 (AVG: 0.843)	Score 65.249 (AVG: 73.785)	mIOU 34.931 mAP 56.514 mAcc 46.035
+IOU: 66.418 94.038 32.471 47.090 74.675 56.036 54.537 17.954 27.187 47.475 0.000 22.880 24.194 29.663 0.000 9.553 41.552 12.132 27.859 12.913
+mAP: 73.409 97.415 49.544 66.633 84.215 73.741 63.405 38.741 42.131 54.479 15.308 53.829 48.435 74.747 29.996 58.561 73.643 34.598 62.945 34.508
+mAcc: 84.602 99.093 67.663 55.032 80.876 70.886 75.020 30.693 49.999 60.144 0.000 29.627 41.648 30.724 0.000 10.167 46.840 14.203 58.593 14.890
+
+ubuntu 11/20 04:23:49 201/312: Data time: 0.0028, Iter time: 1.4549	Loss 1.139 (AVG: 0.825)	Score 60.023 (AVG: 74.462)	mIOU 35.471 mAP 56.408 mAcc 46.123
+IOU: 68.339 93.885 30.830 48.714 76.006 54.649 53.917 18.300 27.816 54.052 0.000 22.142 26.386 26.100 0.000 10.515 38.772 11.674 34.535 12.796
+mAP: 74.457 97.185 45.470 64.686 81.694 70.360 61.897 37.635 38.835 58.015 17.319 48.134 46.742 75.523 29.938 64.792 78.171 40.377 63.995 32.943
+mAcc: 86.536 98.994 64.529 55.514 83.071 70.014 74.141 28.668 49.921 66.320 0.000 31.655 42.373 27.158 0.000 11.474 41.682 13.500 61.929 14.988
+
+ubuntu 11/20 04:27:33 301/312: Data time: 0.0021, Iter time: 2.3184	Loss 1.084 (AVG: 0.799)	Score 68.320 (AVG: 75.125)	mIOU 36.035 mAP 56.690 mAcc 46.457
+IOU: 68.245 94.203 33.799 48.096 74.580 59.769 54.323 19.791 28.698 52.569 0.000 25.410 25.629 23.340 0.000 9.814 37.869 11.756 38.940 13.864
+mAP: 73.867 97.301 49.793 63.601 81.175 72.464 61.465 40.198 40.214 59.463 18.436 47.390 45.409 68.851 31.989 66.336 77.630 37.983 68.288 31.951
+mAcc: 85.880 98.770 65.204 55.233 82.239 73.727 72.135 31.091 51.540 63.418 0.000 35.646 43.037 24.614 0.000 10.591 40.461 13.848 64.883 16.826
+
+ubuntu 11/20 04:28:03 312/312: Data time: 0.0457, Iter time: 2.2664	Loss 1.174 (AVG: 0.798)	Score 59.454 (AVG: 75.131)	mIOU 36.098 mAP 56.668 mAcc 46.444
+IOU: 68.247 94.238 34.209 47.733 74.402 59.390 54.079 19.872 28.461 52.713 0.000 25.873 25.330 23.208 0.000 10.103 38.523 11.585 40.078 13.916
+mAP: 73.901 97.291 49.792 64.407 81.267 71.736 60.800 40.436 40.318 59.838 18.854 46.779 45.216 68.767 30.338 67.352 78.242 37.926 68.683 31.425
+mAcc: 85.887 98.774 66.086 54.716 81.825 73.431 71.800 31.048 50.892 63.531 0.000 35.558 42.777 24.485 0.000 10.872 41.068 13.530 65.597 17.009
+
+ubuntu 11/20 04:28:03 Finished test. Elapsed time: 697.6491
+ubuntu 11/20 04:28:04 Checkpoint saved to ./outputs/ScanNet-default/2019-11-20_03-06-35/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/20 04:28:04 Current best mIoU: 36.098 at iter 200
+ubuntu 11/20 04:29:15 Caught KeyError in DataLoader worker process 9.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 04:31:11 ===> Epoch[2](210/121): Loss 0.7695	LR: 9.984e-02	Score 76.078	Data time: 1.6587, Iter time: 17.9348
+ubuntu 11/20 04:33:56 ===> Epoch[2](220/121): Loss 0.7946	LR: 9.983e-02	Score 75.293	Data time: 1.5590, Iter time: 16.0671
+ubuntu 11/20 04:36:41 ===> Epoch[2](230/121): Loss 0.7602	LR: 9.983e-02	Score 76.262	Data time: 1.4914, Iter time: 15.9046
+ubuntu 11/20 04:38:43 Caught KeyError in DataLoader worker process 3.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/20 04:39:35 ===> Epoch[3](240/121): Loss 0.7742	LR: 9.982e-02	Score 75.992	Data time: 1.5381, Iter time: 16.7399
+ubuntu 11/20 04:42:34 ===> Epoch[3](250/121): Loss 0.7609	LR: 9.981e-02	Score 75.956	Data time: 1.4942, Iter time: 16.8558
+ubuntu 11/20 04:45:34 ===> Epoch[3](260/121): Loss 0.7832	LR: 9.980e-02	Score 76.266	Data time: 1.7031, Iter time: 16.9111
+ubuntu 11/20 04:48:27 ===> Epoch[3](270/121): Loss 0.7587	LR: 9.980e-02	Score 76.638	Data time: 1.5469, Iter time: 16.5543
+ubuntu 11/20 04:51:41 ===> Epoch[3](280/121): Loss 0.8022	LR: 9.979e-02	Score 76.054	Data time: 1.6889, Iter time: 18.5570
+ubuntu 11/20 04:53:07 Caught KeyError in DataLoader worker process 2.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 04:54:21 ===> Epoch[3](290/121): Loss 0.7225	LR: 9.978e-02	Score 77.681	Data time: 1.4875, Iter time: 15.3167
+ubuntu 11/20 04:57:05 ===> Epoch[3](300/121): Loss 0.7580	LR: 9.977e-02	Score 76.452	Data time: 1.5771, Iter time: 15.4688
+ubuntu 11/20 04:57:05 ===> Start testing
+ubuntu 11/20 05:01:00 101/312: Data time: 0.0044, Iter time: 1.6911	Loss 0.848 (AVG: 0.794)	Score 75.771 (AVG: 76.065)	mIOU 38.073 mAP 56.530 mAcc 50.372
+IOU: 70.446 94.465 38.021 48.895 68.169 47.288 46.865 22.137 35.510 34.985 0.077 37.195 35.584 54.648 0.000 44.137 20.003 8.153 39.748 15.135
+mAP: 75.060 93.796 41.737 69.349 79.927 71.233 59.897 37.115 42.129 64.314 15.520 49.925 52.964 69.129 32.771 82.016 59.881 32.688 72.777 28.380
+mAcc: 89.726 98.748 47.456 59.488 89.571 81.667 56.098 32.831 44.591 38.151 0.077 66.112 46.017 75.525 0.000 65.014 27.460 10.425 56.346 22.145
+
+ubuntu 11/20 05:04:25 201/312: Data time: 0.0039, Iter time: 0.7756	Loss 0.902 (AVG: 0.776)	Score 69.225 (AVG: 76.443)	mIOU 38.249 mAP 57.815 mAcc 50.134
+IOU: 70.604 94.446 38.784 43.751 69.254 47.678 49.769 22.253 32.601 46.949 0.047 38.132 30.862 49.093 0.000 29.697 30.172 11.355 43.997 15.544
+mAP: 75.705 94.631 44.844 70.480 82.356 72.969 62.817 39.056 42.666 62.367 17.946 52.626 52.497 69.417 34.708 76.756 65.660 39.329 69.173 30.310
+mAcc: 89.027 98.767 47.805 56.281 89.428 84.755 58.661 36.173 40.593 52.024 0.048 59.490 43.470 74.168 0.000 35.310 41.247 13.397 60.902 21.141
+
+ubuntu 11/20 05:08:07 301/312: Data time: 0.0044, Iter time: 1.1932	Loss 0.568 (AVG: 0.779)	Score 84.622 (AVG: 76.200)	mIOU 37.996 mAP 56.805 mAcc 49.714
+IOU: 70.215 94.746 37.153 41.949 69.968 49.959 49.789 23.134 29.968 46.899 0.041 36.670 30.232 44.491 0.000 27.452 31.425 14.246 45.301 16.283
+mAP: 74.818 94.668 43.145 65.389 81.360 72.543 61.266 38.474 43.158 59.020 18.858 51.637 49.672 68.153 28.740 79.087 67.386 42.601 66.525 29.608
+mAcc: 89.236 98.776 44.959 52.788 89.980 85.121 59.066 36.606 38.252 52.304 0.041 59.965 43.463 66.383 0.000 34.339 41.143 16.922 62.672 22.255
+
+ubuntu 11/20 05:08:32 312/312: Data time: 0.0044, Iter time: 2.2464	Loss 0.491 (AVG: 0.778)	Score 85.336 (AVG: 76.285)	mIOU 38.108 mAP 57.020 mAcc 49.741
+IOU: 70.318 94.661 36.768 41.412 69.960 52.037 50.418 23.459 29.878 46.186 0.043 36.357 29.992 46.145 0.000 27.441 31.595 14.104 45.346 16.048
+mAP: 75.069 94.659 43.021 65.323 81.697 73.176 62.062 39.045 43.512 58.433 19.492 51.637 49.522 68.269 28.151 79.749 67.467 42.917 67.462 29.728
+mAcc: 89.235 98.690 44.792 51.831 90.121 84.595 59.652 37.144 38.404 51.271 0.043 59.965 43.498 67.543 0.000 34.424 41.402 16.739 63.306 22.162
+
+ubuntu 11/20 05:08:32 Finished test. Elapsed time: 687.0576
+ubuntu 11/20 05:08:33 Checkpoint saved to ./outputs/ScanNet-default/2019-11-20_03-06-35/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/20 05:08:33 Current best mIoU: 38.108 at iter 300
+ubuntu 11/20 05:11:31 ===> Epoch[3](310/121): Loss 0.7477	LR: 9.977e-02	Score 76.814	Data time: 1.6617, Iter time: 17.1380
+ubuntu 11/20 05:12:42 Caught KeyError in DataLoader worker process 2.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 05:14:33 ===> Epoch[3](320/121): Loss 0.8004	LR: 9.976e-02	Score 75.101	Data time: 1.4976, Iter time: 17.3487
+ubuntu 11/20 05:17:41 ===> Epoch[3](330/121): Loss 0.7263	LR: 9.975e-02	Score 77.551	Data time: 1.5966, Iter time: 17.7715
+ubuntu 11/20 05:20:51 ===> Epoch[3](340/121): Loss 0.7491	LR: 9.974e-02	Score 76.025	Data time: 1.8606, Iter time: 18.2382
+ubuntu 11/20 05:23:42 ===> Epoch[3](350/121): Loss 0.7625	LR: 9.974e-02	Score 76.283	Data time: 1.5617, Iter time: 16.1198
+ubuntu 11/20 05:26:37 ===> Epoch[4](360/121): Loss 0.7728	LR: 9.973e-02	Score 75.554	Data time: 1.5829, Iter time: 16.7288
+ubuntu 11/20 05:26:37 Caught KeyError in DataLoader worker process 9.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/20 05:29:14 ===> Epoch[4](370/121): Loss 0.7200	LR: 9.972e-02	Score 77.805	Data time: 1.3724, Iter time: 14.8357
+ubuntu 11/20 05:32:06 ===> Epoch[4](380/121): Loss 0.8115	LR: 9.971e-02	Score 74.417	Data time: 1.5490, Iter time: 16.1232
+ubuntu 11/20 05:34:48 ===> Epoch[4](390/121): Loss 0.8220	LR: 9.971e-02	Score 74.687	Data time: 1.5122, Iter time: 15.4217
+ubuntu 11/20 05:35:18 Caught KeyError in DataLoader worker process 2.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 05:37:36 ===> Epoch[4](400/121): Loss 0.7654	LR: 9.970e-02	Score 76.420	Data time: 1.5446, Iter time: 15.9978
+ubuntu 11/20 05:37:36 ===> Start testing
+ubuntu 11/20 05:41:37 101/312: Data time: 0.0046, Iter time: 3.1562	Loss 0.442 (AVG: 0.783)	Score 85.921 (AVG: 76.628)	mIOU 35.102 mAP 56.362 mAcc 49.567
+IOU: 70.698 94.941 33.484 46.976 73.040 64.598 58.783 21.003 22.668 43.244 0.000 33.137 23.423 38.272 2.741 0.019 21.606 7.163 33.282 12.968
+mAP: 75.856 96.064 48.382 68.466 81.395 77.603 66.532 39.019 41.424 58.972 20.594 63.929 51.878 59.361 31.651 48.422 62.754 32.136 72.905 29.895
+mAcc: 88.495 97.872 57.832 71.563 80.380 91.341 77.942 32.431 26.296 75.385 0.000 47.488 35.492 72.065 2.777 0.021 40.411 8.460 70.070 15.011
+
+ubuntu 11/20 05:45:23 201/312: Data time: 0.0041, Iter time: 1.9734	Loss 0.475 (AVG: 0.778)	Score 83.352 (AVG: 77.012)	mIOU 36.919 mAP 56.891 mAcc 50.798
+IOU: 71.310 94.720 36.378 53.753 72.554 59.762 57.437 21.007 23.857 52.487 0.000 38.025 23.781 40.797 2.408 0.049 27.566 9.199 39.680 13.614
+mAP: 76.105 94.718 48.328 70.165 81.951 74.916 65.579 40.092 41.803 60.864 21.991 59.351 48.348 65.995 29.682 55.317 72.182 34.760 67.155 28.526
+mAcc: 88.342 98.040 55.617 72.368 80.771 87.242 75.812 32.634 28.047 81.237 0.000 54.389 33.010 72.934 2.442 0.051 50.291 10.883 75.113 16.736
+
+ubuntu 11/20 05:49:02 301/312: Data time: 0.0019, Iter time: 2.1291	Loss 0.137 (AVG: 0.790)	Score 97.818 (AVG: 76.373)	mIOU 37.377 mAP 56.923 mAcc 51.087
+IOU: 70.662 94.601 37.345 55.978 70.375 57.052 55.646 21.877 24.602 55.400 0.000 35.981 23.520 39.169 2.465 0.068 38.532 11.134 40.070 13.057
+mAP: 74.943 94.232 49.742 69.418 80.495 73.634 63.915 39.483 40.918 62.710 21.728 52.122 49.420 67.359 30.924 59.198 76.145 37.950 66.407 27.727
+mAcc: 87.856 98.000 55.034 72.479 78.804 87.662 74.402 33.828 28.461 85.798 0.000 50.505 32.475 73.175 2.509 0.070 58.174 12.920 73.175 16.412
+
+ubuntu 11/20 05:49:26 312/312: Data time: 0.0043, Iter time: 0.8730	Loss 0.789 (AVG: 0.789)	Score 76.871 (AVG: 76.386)	mIOU 37.330 mAP 56.814 mAcc 50.957
+IOU: 70.818 94.620 36.985 55.344 70.720 58.254 55.266 21.550 24.589 55.165 0.000 35.468 23.238 38.362 2.375 0.068 38.757 11.594 40.491 12.927
+mAP: 75.132 94.279 50.052 68.898 80.677 72.978 63.908 39.053 40.638 62.662 21.047 51.855 49.772 65.248 29.770 60.468 76.610 38.719 66.960 27.550
+mAcc: 88.067 97.998 55.157 70.991 79.074 88.142 74.235 33.009 28.595 85.823 0.000 50.261 32.154 72.011 2.417 0.070 57.881 13.484 73.499 16.269
+
+ubuntu 11/20 05:49:26 Finished test. Elapsed time: 709.3311
+ubuntu 11/20 05:49:26 Current best mIoU: 38.108 at iter 300
+ubuntu 11/20 05:52:26 ===> Epoch[4](410/121): Loss 0.7563	LR: 9.969e-02	Score 76.100	Data time: 1.8196, Iter time: 17.2703
+ubuntu 11/20 05:55:22 ===> Epoch[4](420/121): Loss 0.8219	LR: 9.968e-02	Score 76.000	Data time: 1.5099, Iter time: 16.7250
+ubuntu 11/20 05:55:59 Caught KeyError in DataLoader worker process 3.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 05:58:15 ===> Epoch[4](430/121): Loss 0.7749	LR: 9.968e-02	Score 75.736	Data time: 1.7733, Iter time: 16.7290
+ubuntu 11/20 06:01:30 ===> Epoch[4](440/121): Loss 0.6908	LR: 9.967e-02	Score 78.563	Data time: 1.6556, Iter time: 18.8022
+ubuntu 11/20 06:04:35 ===> Epoch[4](450/121): Loss 0.7241	LR: 9.966e-02	Score 77.992	Data time: 1.6169, Iter time: 17.7668
+ubuntu 11/20 06:07:29 ===> Epoch[4](460/121): Loss 0.7523	LR: 9.965e-02	Score 76.683	Data time: 1.6646, Iter time: 16.6978
+ubuntu 11/20 06:10:26 ===> Epoch[4](470/121): Loss 0.7669	LR: 9.965e-02	Score 75.997	Data time: 1.7109, Iter time: 16.9041
+ubuntu 11/20 06:13:01 ===> Epoch[5](480/121): Loss 0.7732	LR: 9.964e-02	Score 75.923	Data time: 1.5692, Iter time: 15.2577
+ubuntu 11/20 06:16:07 ===> Epoch[5](490/121): Loss 0.7622	LR: 9.963e-02	Score 76.884	Data time: 1.7459, Iter time: 17.6149
+ubuntu 11/20 06:19:14 ===> Epoch[5](500/121): Loss 0.6567	LR: 9.962e-02	Score 80.068	Data time: 1.8624, Iter time: 17.8003
+ubuntu 11/20 06:19:14 ===> Start testing
+ubuntu 11/20 06:22:59 101/312: Data time: 0.0041, Iter time: 2.0887	Loss 1.246 (AVG: 0.703)	Score 63.821 (AVG: 78.202)	mIOU 39.515 mAP 57.946 mAcc 49.448
+IOU: 71.991 95.123 48.334 60.050 76.860 69.938 58.090 5.130 24.637 64.093 0.366 48.476 29.732 38.106 0.416 0.039 29.886 8.591 39.903 20.542
+mAP: 78.574 93.843 54.319 63.728 75.226 78.915 63.378 43.149 46.653 67.693 10.447 54.779 45.191 71.616 33.535 58.267 77.392 40.604 67.514 34.091
+mAcc: 88.631 98.935 66.817 69.684 88.410 89.102 65.134 5.386 52.572 76.933 0.373 62.210 54.678 58.579 0.416 0.039 31.368 9.056 41.175 29.456
+
+ubuntu 11/20 06:26:42 201/312: Data time: 0.0042, Iter time: 1.4740	Loss 0.963 (AVG: 0.732)	Score 71.102 (AVG: 77.550)	mIOU 38.402 mAP 57.954 mAcc 48.769
+IOU: 71.153 94.623 43.821 58.087 75.484 64.983 56.144 6.297 30.195 58.325 0.242 40.972 28.744 37.445 0.277 0.020 29.920 11.639 41.399 18.274
+mAP: 76.493 94.327 54.916 65.302 77.047 77.296 62.938 41.922 46.358 64.146 18.229 53.806 47.125 69.387 28.710 60.595 78.457 45.232 63.528 33.254
+mAcc: 89.557 98.739 61.449 71.219 87.911 87.068 64.351 6.630 57.763 67.586 0.244 55.904 54.416 60.904 0.278 0.020 31.396 12.912 43.223 23.813
+
+ubuntu 11/20 06:30:41 301/312: Data time: 0.0051, Iter time: 1.5459	Loss 1.151 (AVG: 0.768)	Score 66.448 (AVG: 76.557)	mIOU 37.760 mAP 57.578 mAcc 48.602
+IOU: 70.448 94.580 40.189 54.564 71.720 59.206 54.155 6.350 32.350 63.047 0.163 40.518 30.921 34.419 0.844 0.153 29.851 12.204 43.826 15.686
+mAP: 75.385 93.859 50.279 67.820 76.783 74.899 61.593 42.544 46.840 63.954 18.206 52.697 48.794 65.982 30.803 59.560 77.175 45.310 65.822 33.264
+mAcc: 89.426 98.799 59.207 70.029 84.477 85.220 63.357 6.635 60.091 72.758 0.164 56.278 55.555 59.048 0.847 0.153 31.081 13.681 45.752 19.474
+
+ubuntu 11/20 06:31:05 312/312: Data time: 0.0026, Iter time: 1.6955	Loss 0.234 (AVG: 0.762)	Score 92.311 (AVG: 76.760)	mIOU 37.656 mAP 57.731 mAcc 48.512
+IOU: 70.763 94.554 40.167 54.449 71.776 59.658 53.870 6.180 32.364 63.016 0.171 40.292 30.159 34.336 0.978 0.153 29.107 12.283 43.016 15.829
+mAP: 75.444 93.829 50.537 68.142 76.515 75.329 62.037 42.427 46.708 64.574 18.202 53.080 48.230 65.982 31.990 59.560 77.034 46.130 65.094 33.769
+mAcc: 89.571 98.780 59.385 70.152 84.249 85.108 63.114 6.485 60.145 72.651 0.172 56.427 55.243 59.048 0.981 0.153 30.262 13.786 44.890 19.634
+
+ubuntu 11/20 06:31:05 Finished test. Elapsed time: 710.7546
+ubuntu 11/20 06:31:05 Current best mIoU: 38.108 at iter 300
+ubuntu 11/20 06:34:05 ===> Epoch[5](510/121): Loss 0.7026	LR: 9.962e-02	Score 78.391	Data time: 1.7387, Iter time: 17.0192
+ubuntu 11/20 06:35:30 Caught KeyError in DataLoader worker process 7.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 06:36:56 ===> Epoch[5](520/121): Loss 0.6838	LR: 9.961e-02	Score 78.699	Data time: 1.7236, Iter time: 16.7711
+ubuntu 11/20 06:37:33 Caught KeyError in DataLoader worker process 5.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 06:39:56 ===> Epoch[5](530/121): Loss 0.7798	LR: 9.960e-02	Score 76.350	Data time: 1.6847, Iter time: 17.1115
+ubuntu 11/20 06:42:45 ===> Epoch[5](540/121): Loss 0.7622	LR: 9.959e-02	Score 76.030	Data time: 1.6004, Iter time: 16.0957
+ubuntu 11/20 06:44:21 Caught KeyError in DataLoader worker process 9.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 149.0
+
+ubuntu 11/20 06:45:51 ===> Epoch[5](550/121): Loss 0.7301	LR: 9.959e-02	Score 76.551	Data time: 1.6085, Iter time: 17.8914
+ubuntu 11/20 06:49:05 ===> Epoch[5](560/121): Loss 0.6798	LR: 9.958e-02	Score 79.104	Data time: 1.7603, Iter time: 18.2160
+ubuntu 11/20 06:51:59 ===> Epoch[5](570/121): Loss 0.7407	LR: 9.957e-02	Score 77.339	Data time: 1.4946, Iter time: 16.1399
+ubuntu 11/20 06:55:11 ===> Epoch[5](580/121): Loss 0.7782	LR: 9.956e-02	Score 76.357	Data time: 1.7491, Iter time: 18.2520
+ubuntu 11/20 06:58:06 ===> Epoch[5](590/121): Loss 0.7828	LR: 9.956e-02	Score 75.677	Data time: 1.8864, Iter time: 16.5978
+ubuntu 11/20 06:58:43 Caught KeyError in DataLoader worker process 7.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 07:01:00 ===> Epoch[6](600/121): Loss 0.7456	LR: 9.955e-02	Score 76.771	Data time: 1.6270, Iter time: 16.4024
+ubuntu 11/20 07:01:00 ===> Start testing
+ubuntu 11/20 07:05:06 101/312: Data time: 0.0029, Iter time: 1.4420	Loss 0.646 (AVG: 0.845)	Score 80.576 (AVG: 73.413)	mIOU 37.428 mAP 56.547 mAcc 51.365
+IOU: 67.834 94.758 38.281 43.302 72.735 30.936 32.828 32.442 28.059 40.081 0.053 41.848 29.797 46.123 6.566 35.693 21.869 12.788 61.930 10.634
+mAP: 75.194 94.612 38.735 70.942 80.538 69.743 45.441 45.500 42.023 46.591 21.628 58.732 55.732 70.817 36.400 70.277 59.280 39.883 78.483 30.390
+mAcc: 77.777 97.354 55.398 85.945 87.260 33.132 40.879 60.315 49.450 62.715 0.053 55.712 77.681 69.561 6.713 51.436 23.323 13.559 67.417 11.622
+
+ubuntu 11/20 07:08:52 201/312: Data time: 0.0019, Iter time: 1.9402	Loss 0.950 (AVG: 0.853)	Score 70.388 (AVG: 73.596)	mIOU 37.988 mAP 57.748 mAcc 52.353
+IOU: 65.908 94.775 39.377 36.745 74.721 35.331 36.687 30.402 33.353 53.637 0.340 43.824 29.769 45.564 6.687 32.159 19.441 13.842 56.883 10.313
+mAP: 74.604 95.477 44.501 68.555 83.829 70.610 53.497 45.068 42.615 54.329 18.529 54.033 57.071 73.598 39.354 71.501 64.254 41.544 70.276 31.712
+mAcc: 76.581 97.752 58.536 83.262 86.532 39.800 43.777 59.365 53.267 73.186 0.340 60.128 79.934 74.300 6.893 45.124 20.316 14.756 62.119 11.086
+
+ubuntu 11/20 07:12:38 301/312: Data time: 0.0028, Iter time: 1.0137	Loss 0.422 (AVG: 0.821)	Score 85.107 (AVG: 74.386)	mIOU 38.301 mAP 58.591 mAcc 52.781
+IOU: 66.980 94.918 37.232 35.847 75.060 33.287 41.237 29.436 33.675 60.099 0.243 42.498 28.497 43.223 6.157 32.867 16.021 14.137 63.671 10.942
+mAP: 75.451 95.672 44.158 69.535 84.528 70.044 56.562 44.543 44.305 56.542 22.535 54.582 57.048 73.033 37.286 72.291 59.221 45.538 75.713 33.235
+mAcc: 77.619 97.698 56.959 81.928 86.237 38.043 48.848 56.927 52.903 76.488 0.243 60.257 79.468 71.304 6.378 50.043 16.985 15.004 70.467 11.822
+
+ubuntu 11/20 07:13:03 312/312: Data time: 0.0043, Iter time: 1.6494	Loss 0.565 (AVG: 0.823)	Score 81.715 (AVG: 74.397)	mIOU 38.265 mAP 58.421 mAcc 52.726
+IOU: 67.189 94.904 36.825 36.656 74.708 33.821 40.906 29.693 33.704 59.280 0.227 42.993 28.943 44.676 5.780 33.031 16.129 13.415 61.391 11.033
+mAP: 75.490 95.573 43.972 68.786 84.445 69.444 56.270 45.174 43.913 55.362 23.070 55.703 56.306 73.419 36.446 72.484 58.933 44.874 75.484 33.273
+mAcc: 77.834 97.699 56.296 81.724 85.839 38.765 48.789 57.295 53.287 74.875 0.227 60.406 80.040 72.193 5.977 51.122 17.266 14.332 68.572 11.981
+
+ubuntu 11/20 07:13:03 Finished test. Elapsed time: 723.2925
+ubuntu 11/20 07:13:06 Checkpoint saved to ./outputs/ScanNet-default/2019-11-20_03-06-35/checkpoint_NoneRes16UNet34Cbest_val.pth
+ubuntu 11/20 07:13:06 Current best mIoU: 38.265 at iter 600
+ubuntu 11/20 07:15:53 ===> Epoch[6](610/121): Loss 0.7314	LR: 9.954e-02	Score 76.739	Data time: 1.5116, Iter time: 15.8623
+ubuntu 11/20 07:17:28 Caught KeyError in DataLoader worker process 2.
+Original Traceback (most recent call last):
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/worker.py", line 178, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/anaconda3/envs/mk/lib/python3.6/site-packages/torch/utils/data/_utils/fetch.py", line 44, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in __getitem__
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+  File "/root/pyy/SpatioTemporalSegmentation/lib/dataset.py", line 274, in <listcomp>
+    labels = np.array([self.label_map[x] for x in labels], dtype=np.int)
+KeyError: 50.0
+
+ubuntu 11/20 07:18:39 ===> Epoch[6](620/121): Loss 0.7305	LR: 9.953e-02	Score 77.572	Data time: 1.8002, Iter time: 16.1549
+ubuntu 11/20 07:21:48 ===> Epoch[6](630/121): Loss 0.6709	LR: 9.953e-02	Score 79.093	Data time: 2.0181, Iter time: 18.2793

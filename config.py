@@ -32,7 +32,7 @@ parser = argparse.ArgumentParser()
 net_arg = add_argument_group('Network')
 net_arg.add_argument('--model', type=str, default='ResUNet14', help='Model name')
 net_arg.add_argument(
-    '--conv1_kernel_size', type=int, default=3, help='First layer conv kernel size')
+    '--conv1_kernel_size', type=int, default=5, help='First layer conv kernel size')
 net_arg.add_argument('--weights', type=str, default='None', help='Saved weights to load')
 net_arg.add_argument(
     '--weights_for_inner_model',
@@ -145,7 +145,7 @@ train_arg.add_argument('--is_train', type=str2bool, default=True)
 train_arg.add_argument('--stat_freq', type=int, default=10, help='print frequency')
 train_arg.add_argument('--test_stat_freq', type=int, default=100, help='print frequency')
 train_arg.add_argument('--save_freq', type=int, default=1000, help='save frequency')
-train_arg.add_argument('--val_freq', type=int, default=1000, help='validation frequency')
+train_arg.add_argument('--val_freq', type=int, default=100, help='validation frequency')
 train_arg.add_argument(
     '--empty_cache_freq', type=int, default=1, help='Clear pytorch cache frequency')
 train_arg.add_argument('--train_phase', type=str, default='train', help='Dataset for training')

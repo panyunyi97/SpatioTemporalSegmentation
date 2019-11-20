@@ -92,6 +92,7 @@ def train(model, data_loader, val_data_loader, config, transform_data_fn=None):
           # Feed forward
           inputs = (sinput,) if config.wrapper_type == 'None' else (sinput, coords, color)
           # model.initialize_coords(*init_args)
+          
           soutput = model(*inputs)
           # The output of the network is not sorted
           target = target.long().to(device)

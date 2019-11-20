@@ -28,7 +28,7 @@ python main.py \
     --batch_size $BATCH_SIZE \
     --scheduler PolyLR \
     --max_iter 120000 \
-    --train_limit_numpoints 1200000 \
+    --train_limit_numpoints 10000000 \
     --train_phase train \
     $3 2>&1 | tee -a "$LOG"
 
@@ -43,7 +43,7 @@ python main.py \
     --batch_size $BATCH_SIZE \
     --scheduler PolyLR \
     --max_iter 120000 \
-    --train_limit_numpoints 1200000 \
+    --train_limit_numpoints 10000000 \
     --train_phase trainval \
     --weights $LOG_DIR/weights.pth \
     $3 2>&1 | tee -a "$LOG"

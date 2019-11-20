@@ -48,7 +48,7 @@ def main():
   dconfig = vars(config)
   for k in dconfig:
     logging.info('    {}: {}'.format(k, dconfig[k]))
-
+  # 加载 DataSet
   DatasetClass = load_dataset(config.dataset)
   if config.test_original_pointcloud:
     if not DatasetClass.IS_FULL_POINTCLOUD_EVAL:
@@ -61,7 +61,7 @@ def main():
   if (config.return_transformation ^ config.evaluate_original_pointcloud):
     raise ValueError('Rotation evaluation requires config.evaluate_original_pointcloud=true and '
                      'config.return_transformation=true.')
-
+  #加载dataloader
   logging.info('===> Initializing dataloader')
   if config.is_train:
     train_data_loader = initialize_data_loader(
@@ -120,7 +120,7 @@ def main():
     model = wrapper(NetClass, num_in_channel, num_labels, config)
     logging.info('===> Number of trainable parameters: {}: {}'.format(
         wrapper.__name__ + NetClass.__name__, count_parameters(model)))
-
+  # 加载模型
   logging.info(model)
   model = model.to(device)
 
