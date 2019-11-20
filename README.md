@@ -10,7 +10,7 @@ This repository contains the accompanying code for [4D-SpatioTemporal ConvNets: 
 2. Next, preprocess all scannet raw point cloud with the following command after you set the path correctly.
 
 ```
-python -m lib.datasets.prepreocessing.scannet
+python scannet.py
 ```
 
 3. Train the network with
